@@ -1,0 +1,983 @@
+/* ==========================================================
+   SERVICOS.CSS
+   ClinicFlow
+========================================================== */
+
+/* ==========================================================
+   CONTEÚDO
+========================================================== */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ==========================================================
+   OVERLAY MOBILE
+========================================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 998;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================================
+   TOPBAR
+========================================================== */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-title-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.page-title-info h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.page-title-info p {
+    color: var(--gray-500);
+    font-size: .95rem;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ==========================================================
+   BOTÃO NOVO
+========================================================== */
+#btnNovoServico {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ==========================================================
+   GRID DOS CARDS
+========================================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+.dashboard-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: .25s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.dashboard-card span {
+    display: block;
+    color: var(--gray-500);
+    margin-bottom: 8px;
+    font-size: .9rem;
+}
+
+.dashboard-card h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+   ÍCONES
+========================================================== */
+.card-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.card-icon.blue {
+    background: #2563eb;
+}
+
+.card-icon.green {
+    background: #16a34a;
+}
+
+.card-icon.red {
+    background: #dc2626;
+}
+
+.card-icon.yellow {
+    background: #f59e0b;
+}
+
+/* ==========================================================
+   FILTROS
+========================================================== */
+.filters {
+    display: grid;
+    grid-template-columns: 1.4fr 250px 220px;
+    gap: 18px;
+    padding: 22px;
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================
+   PESQUISA
+========================================================== */
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    height: 48px;
+    padding-left: 46px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+}
+
+/* ==========================================================
+   SELECTS
+========================================================== */
+.filters select {
+    height: 48px;
+}
+
+/* ==========================================================
+   SEÇÃO DE SERVIÇOS
+========================================================== */
+.servicos-section {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* ==========================================================
+   CABEÇALHO DA LISTAGEM
+========================================================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h2 {
+    font-size: 26px;
+    color: var(--gray-900);
+}
+
+.section-header p {
+    margin-top: 6px;
+    color: var(--gray-500);
+}
+
+#contadorServicos {
+    background: rgba(37, 99, 235, .08);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 22px;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+.servico-card {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: .25s;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--gray-200);
+}
+
+.servico-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================
+   TOPO DO CARD
+========================================================== */
+.servico-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.servico-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.servico-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.servico-icon i {
+    pointer-events: none;
+}
+
+.servico-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.servico-titulo h3 {
+    font-size: 20px;
+    color: var(--gray-900);
+    font-weight: 700;
+}
+
+.servico-titulo span {
+    color: var(--gray-500);
+    font-size: .9rem;
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+.status-servico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-servico.ativo {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-servico.inativo {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ==========================================================
+   DESCRIÇÃO
+========================================================== */
+.servico-descricao {
+    color: var(--gray-600);
+    line-height: 1.7;
+    min-height: 70px;
+}
+
+/* ==========================================================
+   INFORMAÇÕES
+========================================================== */
+.servico-detalhes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.servico-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.servico-item span {
+    font-size: .82rem;
+    color: var(--gray-500);
+}
+
+.servico-item strong {
+    color: var(--gray-900);
+    font-size: 1rem;
+}
+
+/* ==========================================================
+   PROFISSIONAIS
+========================================================== */
+.profissionais-servico {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.profissional-tag {
+    padding: 6px 12px;
+    border-radius: 30px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   RODAPÉ
+========================================================== */
+.servico-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--gray-200);
+}
+
+/* ==========================================================
+   VALOR
+========================================================== */
+.servico-preco {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.servico-preco span {
+    color: var(--gray-500);
+    font-size: .82rem;
+}
+
+.servico-preco strong {
+    color: #16a34a;
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+/* ==========================================================
+   AÇÕES
+========================================================== */
+.servico-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.servico-actions .btn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.servico-actions .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================================================
+   MODAIS
+========================================================== */
+.modal-xl {
+    width: min(1050px, 96vw);
+}
+
+.modal-lg {
+    width: min(850px, 95vw);
+}
+
+/* ==========================================================
+   BODY DO MODAL
+========================================================== */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.modal-body .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.modal-body .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.modal-body textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* ==========================================================
+   VISUALIZAÇÃO
+========================================================== */
+.visualizar-servico {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ==========================================================
+   TOPO
+========================================================== */
+.visualizar-topo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.visualizar-icone {
+    width: 85px;
+    height: 85px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    font-size: 34px;
+    flex-shrink: 0;
+}
+
+.visualizar-topo h2 {
+    margin-bottom: 8px;
+    font-size: 28px;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+.visualizar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+/* ==========================================================
+   INFO CARD
+========================================================== */
+.info-card {
+    background: #f8fafc;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-card span {
+    color: var(--gray-500);
+    font-size: .82rem;
+}
+
+.info-card strong {
+    color: var(--gray-900);
+    font-size: 1.05rem;
+}
+
+/* ==========================================================
+   SEÇÕES
+========================================================== */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.info-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: var(--gray-800);
+}
+
+.info-section i {
+    color: var(--primary);
+}
+
+.info-section p {
+    color: var(--gray-600);
+    line-height: 1.8;
+}
+
+/* ==========================================================
+   COR
+========================================================== */
+.servico-cor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cor-preview {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+}
+
+#viewCodigoCor {
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+/* ==========================================================
+   TAGS
+========================================================== */
+.profissionais-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profissionais-tags .tag {
+    padding: 8px 14px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+#viewStatus {
+    display: inline-flex;
+    width: max-content;
+    padding: 6px 14px;
+    border-radius: 999px;
+}
+
+.status-ativo {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-inativo {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ==========================================================
+   MULTISELECT
+========================================================== */
+#profissionaisServico {
+    min-height: 150px;
+}
+
+#profissionaisServico option {
+    padding: 10px;
+}
+
+/* ==========================================================
+   INPUT COLOR
+========================================================== */
+input[type="color"] {
+    width: 100%;
+    height: 48px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+/* ==========================================================
+   NOTEBOOKS
+========================================================== */
+@media (max-width:1200px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filters {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filters .search-box {
+        grid-column: 1/-1;
+    }
+
+    .servicos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+/* ==========================================================
+   TABLETS
+========================================================== */
+@media (max-width:992px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .topbar-right {
+        width: 100%;
+    }
+
+    .topbar-right .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-body .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-body .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .visualizar-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+@media (max-width:768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: .30s;
+        z-index: 999;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .topbar {
+        padding: 18px;
+        gap: 18px;
+    }
+
+    .page-title-info h1 {
+        font-size: 28px;
+    }
+
+    .page-title-info p {
+        font-size: .9rem;
+    }
+
+    #btnNovoServico {
+        width: 100%;
+        justify-content: center;
+        height: 48px;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+
+    .dashboard-card h2 {
+        font-size: 26px;
+    }
+
+    .card-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+    }
+
+    .servico-card {
+        padding: 20px;
+    }
+
+    .servico-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .servico-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .servico-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .visualizar-topo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .visualizar-topo h2 {
+        font-size: 24px;
+    }
+}
+
+/* ==========================================================
+   CELULARES PEQUENOS
+========================================================== */
+@media (max-width:576px) {
+    .content {
+        gap: 18px;
+    }
+
+    .topbar {
+        padding: 15px;
+    }
+
+    .page-title-info h1 {
+        font-size: 24px;
+    }
+
+    .page-title-info p {
+        font-size: .85rem;
+    }
+
+    .dashboard-card {
+        padding: 18px;
+    }
+
+    .dashboard-card h2 {
+        font-size: 24px;
+    }
+
+    .servico-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .servico-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+
+    .servico-titulo h3 {
+        font-size: 18px;
+    }
+
+    .servico-detalhes {
+        grid-template-columns: 1fr;
+    }
+
+    .servico-actions {
+        justify-content: space-between;
+    }
+
+    .servico-actions .btn {
+        flex: 1;
+        width: auto;
+    }
+
+    .modal-xl,
+    .modal-lg {
+        width: 96%;
+    }
+
+    .visualizar-icone {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    .visualizar-topo h2 {
+        font-size: 22px;
+    }
+
+    .info-card {
+        padding: 15px;
+    }
+
+    .profissionais-tags {
+        gap: 8px;
+    }
+
+    .profissionais-tags .tag {
+        font-size: .78rem;
+    }
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+========================================================== */
+@keyframes fadeServico {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.servico-card {
+    animation: fadeServico .25s ease;
+}
+
+.modal {
+    animation: fadeServico .20s ease;
+}
+
+/* ==========================================================
+   UTILITÁRIOS
+========================================================== */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* ==========================================================
+   IMPRESSÃO
+========================================================== */
+@media print {
+
+    .sidebar,
+    .topbar,
+    .filters,
+    .modal-overlay,
+    .servico-actions,
+    #btnNovoServico {
+        display: none !important;
+    }
+
+    .content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .servico-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+}

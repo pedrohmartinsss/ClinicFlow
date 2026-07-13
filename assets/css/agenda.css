@@ -1,0 +1,915 @@
+/* ==========================================================
+   AGENDA.CSS
+   ClinicFlow
+   ========================================================== */
+/* ==========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================== */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ==========================================================
+   OVERLAY DO MENU
+   ========================================================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 998;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*=====================================================
+TOPBAR
+=====================================================*/
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 30px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.page-title-info {
+  flex: 1;
+}
+
+.page-title-info h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.page-title-info p {
+  margin-top: 8px;
+  color: var(--gray-500);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================
+   NAVEGAÇÃO DA AGENDA
+   ========================================================== */
+.agenda-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.agenda-date {
+  min-width: 220px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+/* ==========================================================
+   FILTROS
+   ========================================================== */
+.agenda-filters {
+  display: grid;
+  grid-template-columns: 220px 180px 1fr;
+  gap: 20px;
+  padding: 24px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.agenda-filters .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.agenda-filters label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.flex-grow {
+  width: 100%;
+}
+
+/* ==========================================================
+   CONTAINER DA TIMELINE
+   ========================================================== */
+.agenda-container {
+  background: var(--white);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.agenda-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================
+   LINHAS DA TIMELINE
+   ========================================================== */
+.timeline-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  min-height: 90px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.timeline-row:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================
+   COLUNA HORÁRIO
+   ========================================================== */
+.timeline-hour {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 18px;
+  background: var(--gray-50);
+  border-right: 1px solid var(--gray-200);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+/* ==========================================================
+   ÁREA DOS EVENTOS
+   ========================================================== */
+.timeline-events {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--white);
+  transition: background 0.25s ease;
+}
+
+.timeline-events:hover {
+  background: #f8fbff;
+}
+
+.timeline-events:empty::after {
+  content: "Horário disponível";
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+/* ==========================================================
+   BARRA DE ROLAGEM
+   ========================================================== */
+.agenda-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.agenda-container::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 50px;
+}
+
+.agenda-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.agenda-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ==========================================================
+   CARDS DE AGENDAMENTO
+========================================================== */
+.agenda-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  border-left: 6px solid var(--primary);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.agenda-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================
+   INFORMAÇÕES DO CARD
+========================================================== */
+.agenda-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.agenda-card-paciente {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.agenda-card-profissional {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+}
+
+.agenda-card-procedimento {
+  font-size: 0.88rem;
+  color: var(--gray-500);
+}
+
+.agenda-card-observacao {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+/* ==========================================================
+   HORÁRIO
+========================================================== */
+.agenda-card-horario {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.agenda-card-horario i {
+  color: var(--primary);
+}
+
+/* ==========================================================
+   AÇÕES
+========================================================== */
+.agenda-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.agenda-card-actions button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.agenda-card-actions button:hover {
+  transform: scale(1.08);
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* ==========================================================
+   CONFIRMADO
+========================================================== */
+.status-confirmado {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.agenda-card.confirmado {
+  border-left-color: #16a34a;
+}
+
+/* ==========================================================
+   PENDENTE
+========================================================== */
+.status-pendente {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.agenda-card.pendente {
+  border-left-color: #f59e0b;
+}
+
+/* ==========================================================
+   CANCELADO
+========================================================== */
+.status-cancelado {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.agenda-card.cancelado {
+  border-left-color: #dc2626;
+  opacity: 0.82;
+}
+
+/* ==========================================================
+   CONCLUÍDO
+========================================================== */
+.status-concluido {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.agenda-card.concluido {
+  border-left-color: #2563eb;
+}
+
+/* ==========================================================
+   AVATAR
+========================================================== */
+.agenda-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ==========================================================
+   HEADER DO CARD
+========================================================== */
+.agenda-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* ==========================================================
+   RODAPÉ DO CARD
+========================================================== */
+.agenda-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  gap: 15px;
+}
+
+/* ==========================================================
+   CARD VAZIO
+========================================================== */
+.timeline-events:empty {
+  min-height: 70px;
+}
+
+.timeline-events:empty::after {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 12px;
+}
+
+/* ==========================================================
+   MODAIS
+========================================================== */
+.modal-lg {
+  width: min(900px, 95vw);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-body .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.modal-body textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ==========================================================
+   RODAPÉ DO MODAL
+========================================================== */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* ==========================================================
+   LEGENDA
+========================================================== */
+.agenda-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 18px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.legend-color.confirmado {
+  background: #16a34a;
+}
+
+.legend-color.pendente {
+  background: #f59e0b;
+}
+
+.legend-color.cancelado {
+  background: #dc2626;
+}
+
+.legend-color.concluido {
+  background: #2563eb;
+}
+
+/* ==========================================================
+   BOTÕES DA AGENDA
+========================================================== */
+#btnNovoAgendamento {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline-row:hover .timeline-hour {
+  background: #eef6ff;
+}
+
+/* ==========================================================
+   DETALHES DO AGENDAMENTO
+========================================================== */
+#conteudoDetalhesAgendamento {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detalhe-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.detalhe-item:last-child {
+  border-bottom: none;
+}
+
+.detalhe-label {
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.detalhe-valor {
+  color: var(--gray-900);
+  text-align: right;
+}
+
+/* ==========================================================
+   HORÁRIO LIVRE
+========================================================== */
+.timeline-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  color: var(--gray-400);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ==========================================================
+   BADGES AUXILIARES
+========================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563eb;
+}
+
+.badge-success {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+}
+
+.badge-danger {
+  background: rgba(220, 38, 38, 0.12);
+  color: #b91c1c;
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+========================================================== */
+@keyframes fadeAgenda {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.agenda-card {
+  animation: fadeAgenda 0.25s ease;
+}
+
+.modal {
+  animation: fadeAgenda 0.2s ease;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+@media (max-width: 1200px) {
+  .agenda-filters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .agenda-navigation {
+    flex-wrap: wrap;
+  }
+
+  .agenda-date {
+    width: 100%;
+    order: -1;
+    margin-bottom: 10px;
+  }
+
+  .agenda-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-body .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .agenda-card-footer {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .agenda-card-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    transform: translateX(-100%);
+    z-index: 999;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+
+    color: #000000;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .page-title-info {
+
+    grid-column: 1 / -1;
+
+  }
+
+  .page-title-info h1 {
+    font-size: 30px;
+  }
+
+  .page-title-info p {
+    margin-top: 6px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .topbar {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px;
+    align-items: start;
+  }
+
+  .topbar-right {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .topbar-right .btn {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+  }
+
+  .agenda-navigation {
+    display: grid;
+    grid-template-columns: 52px 1fr 52px;
+    grid-template-areas:
+      "data data data"
+      "anterior hoje proximo";
+    gap: 14px;
+    padding: 18px;
+  }
+
+  #btnDiaAnterior {
+    grid-area: anterior;
+  }
+
+  #btnHoje {
+    grid-area: hoje;
+    width: 100%;
+  }
+
+  #btnProximoDia {
+    grid-area: proximo;
+  }
+
+  #btnNovoAgendamento {
+    padding: 8px 14px;
+    height: 40px;
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .timeline-row {
+    grid-template-columns: 70px 1fr;
+  }
+
+  .timeline-hour {
+    font-size: 0.8rem;
+  }
+
+  .agenda-date {
+    grid-area: data;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .agenda-card {
+    padding: 14px;
+  }
+
+  .agenda-card-paciente {
+    font-size: 0.92rem;
+  }
+
+  .agenda-card-profissional,
+  .agenda-card-procedimento,
+  .agenda-card-observacao {
+    font-size: 0.82rem;
+  }
+
+  .status-badge {
+    min-width: 90px;
+    font-size: 0.7rem;
+  }
+
+  .agenda-legend {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .agenda-navigation {
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .agenda-date {
+    min-width: auto;
+    font-size: 0.9rem;
+  }
+
+  .timeline-row {
+    min-height: 75px;
+  }
+
+  .timeline-hour {
+    padding-top: 14px;
+  }
+
+  .timeline-events {
+    padding: 10px;
+  }
+
+  .agenda-card {
+    gap: 12px;
+  }
+
+  .agenda-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .agenda-card-footer {
+    gap: 10px;
+  }
+
+  .agenda-card-actions {
+    justify-content: flex-start;
+  }
+
+  .modal-lg {
+    width: 95%;
+  }
+}
+
+/* ==========================================================
+   UTILITÁRIOS
+========================================================== */
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* ==========================================================
+   ESTADOS
+========================================================== */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: var(--gray-500);
+}
+
+.sem-agendamento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  border: 2px dashed var(--gray-300);
+  border-radius: 12px;
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+/* ==========================================================
+   IMPRESSÃO
+========================================================== */
+@media print {
+
+  .sidebar,
+  .topbar,
+  .agenda-navigation,
+  .agenda-filters,
+  .agenda-legend,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .content {
+    margin: 0;
+    padding: 0;
+  }
+
+  .agenda-container {
+    box-shadow: none;
+    border: none;
+  }
+}

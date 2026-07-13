@@ -1,0 +1,266 @@
+/* ==========================================================
+   DASHBOARD.CSS
+   ClinicFlow
+   Estilos exclusivos da página Dashboard
+   ========================================================== */
+/* ==========================================================
+   ÁREA PRINCIPAL DO DASHBOARD
+   ========================================================== */
+.dashboard-content {
+  animation: fadeDashboard 0.4s ease;
+}
+
+@keyframes fadeDashboard {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ==========================================================
+   OVERLAY DO MENU
+   ========================================================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 998;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================================
+   CARDS DE INDICADORES
+   ========================================================== */
+.stats-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  right: -25px;
+  bottom: -25px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.stats-card h2 {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* ==========================================================
+   ÍCONES DOS CARDS
+   ========================================================== */
+.stats-icon {
+  transition: var(--transition);
+}
+
+.stats-card:hover .stats-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ==========================================================
+   AGENDA DO DIA
+   ========================================================== */
+.dashboard-grid .table {
+  min-width: 700px;
+}
+
+.dashboard-grid .table td:first-child {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.dashboard-grid .table tbody tr {
+  cursor: pointer;
+}
+
+/* ==========================================================
+   STATUS DA AGENDA
+   ========================================================== */
+.status {
+  min-width: 100px;
+}
+
+/* ==========================================================
+   PRÓXIMOS ATENDIMENTOS
+   ========================================================== */
+.appointment {
+  position: relative;
+  transition: 0.25s;
+}
+
+.appointment:hover {
+  padding-left: 30px;
+}
+
+.appointment strong {
+  color: var(--primary);
+}
+
+.appointment span {
+  color: var(--text-primary);
+}
+
+/* ==========================================================
+   RESUMO DO DIA
+   ========================================================== */
+.panel .list-item strong {
+  font-size: 16px;
+}
+
+.panel .list-item:last-child strong {
+  color: var(--success);
+}
+
+/* ==========================================================
+   GRÁFICO FINANCEIRO
+   ========================================================== */
+.chart-placeholder {
+  position: relative;
+  min-height: 320px;
+}
+
+.chart-placeholder i {
+  animation: pulseChart 2s infinite;
+}
+
+@keyframes pulseChart {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================
+   ATIVIDADES RECENTES
+   ========================================================== */
+.list-item p {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.list-item small {
+  color: var(--text-muted);
+}
+
+/* ==========================================================
+   AÇÕES RÁPIDAS
+   ========================================================== */
+.cards .card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards .panel-body {
+  padding: 0;
+}
+
+.cards .card p {
+  min-height: 45px;
+}
+
+.cards .btn {
+  width: max-content;
+}
+
+/* ==========================================================
+   HEADER DASHBOARD
+   ========================================================== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+/* ==========================================================
+   BOTÃO NOVO AGENDAMENTO
+   ========================================================== */
+.page-title .btn {
+  box-shadow: var(--shadow-sm);
+}
+
+.page-title .btn:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================
+   RESPONSIVIDADE DASHBOARD
+   ========================================================== */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    transform: translateX(-100%);
+    z-index: 999;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .dashboard-grid {
+    padding: 20px;
+  }
+
+  .page-title .btn {
+    width: 100%;
+  }
+
+  .stats-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .actions button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .stats-info h2 {
+    font-size: 24px;
+  }
+}

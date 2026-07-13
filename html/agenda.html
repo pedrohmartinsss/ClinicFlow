@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda | ClinicFlow</title>
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/variables.css" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/agenda.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <span>ClinicFlow</span>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <i class="fa-solid fa-house"></i>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="pacientes.html">
+              <i class="fa-solid fa-users"></i>
+              Pacientes
+            </a>
+          </li>
+          <li class="active">
+            <a href="agenda.html">
+              <i class="fa-solid fa-calendar-days"></i>
+              Agenda
+            </a>
+          </li>
+          <li>
+            <a href="profissionais.html">
+              <i class="fa-solid fa-user-doctor"></i>
+              Profissionais
+            </a>
+          </li>
+          <li>
+            <a href="servicos.html">
+              <i class="fa-solid fa-stethoscope"></i>
+              Serviços
+            </a>
+          </li>
+          <li>
+            <a href="financeiro.html">
+              <i class="fa-solid fa-wallet"></i>
+              Financeiro
+            </a>
+          </li>
+          <li>
+            <a href="relatorios.html">
+              <i class="fa-solid fa-chart-line"></i>
+              Relatórios
+            </a>
+          </li>
+          <li>
+            <a href="configuracoes.html">
+              <i class="fa-solid fa-gear"></i>
+              Configurações
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user">
+          <img src="https://i.pravatar.cc/80?img=12" />
+          <div>
+            <strong> Administrador </strong>
+            <span> admin@clinicflow.com </span>
+          </div>
+        </div>
+        <button class="btn btn-danger" id="btnSair">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Sair
+        </button>
+      </div>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
+    <main class="content">
+      <!-- Topbar -->
+      <header class="topbar">
+        <button id="btnMenu" class="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="page-title-info">
+          <h1>Agenda</h1>
+          <p>Gerencie todos os agendamentos da clínica.</p>
+        </div>
+        <div class="topbar-right">
+          <button class="btn btn-primary" id="btnNovoAgendamento">
+            <i class="fa-solid fa-calendar-plus"></i>
+            Novo Agendamento
+          </button>
+        </div>
+      </header>
+      <!-- Navegação entre datas -->
+      <section class="agenda-navigation">
+        <button class="btn btn-secondary" id="btnDiaAnterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="btn btn-light" id="btnHoje">
+          Hoje
+        </button>
+        <div class="agenda-date" id="dataAtual">
+          09 de Julho de 2026
+        </div>
+        <button class="btn btn-secondary" id="btnProximoDia">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </section>
+      <!-- Filtros -->
+      <section class="agenda-filters">
+        <div class="form-group">
+          <label> Profissional </label>
+          <select id="filtroProfissional" class="form-control">
+            <option value="todos">Todos</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label> Status </label>
+          <select id="filtroStatus" class="form-control">
+            <option value="todos">Todos</option>
+            <option value="confirmado">Confirmado</option>
+            <option value="pendente">Pendente</option>
+            <option value="cancelado">Cancelado</option>
+            <option value="concluido">Concluído</option>
+          </select>
+        </div>
+        <div class="form-group flex-grow">
+          <label> Pesquisar Paciente </label>
+          <input type="text" id="pesquisaAgenda" class="form-control" placeholder="Digite o nome do paciente..." />
+        </div>
+      </section>
+      <!-- Timeline (continua na Parte 2) -->
+      <section class="agenda-container">
+        <div id="agendaTimeline" class="agenda-timeline">
+          <!-- ==========================================
+                     HORÁRIO 07:00
+                =========================================== -->
+          <div class="timeline-row">
+            <div class="timeline-hour">07:00</div>
+            <div class="timeline-events" data-hour="07:00">
+              <!-- Renderizado via agenda.js -->
+            </div>
+          </div>
+          <!-- ========================================== -->
+          <div class="timeline-row">
+            <div class="timeline-hour">08:00</div>
+            <div class="timeline-events" data-hour="08:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">09:00</div>
+            <div class="timeline-events" data-hour="09:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">10:00</div>
+            <div class="timeline-events" data-hour="10:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">11:00</div>
+            <div class="timeline-events" data-hour="11:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">12:00</div>
+            <div class="timeline-events" data-hour="12:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">13:00</div>
+            <div class="timeline-events" data-hour="13:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">14:00</div>
+            <div class="timeline-events" data-hour="14:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">15:00</div>
+            <div class="timeline-events" data-hour="15:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">16:00</div>
+            <div class="timeline-events" data-hour="16:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">17:00</div>
+            <div class="timeline-events" data-hour="17:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">18:00</div>
+            <div class="timeline-events" data-hour="18:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">19:00</div>
+            <div class="timeline-events" data-hour="19:00"></div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-hour">20:00</div>
+            <div class="timeline-events" data-hour="20:00"></div>
+          </div>
+        </div>
+      </section>
+      <!-- ==========================================
+             LEGENDA
+        =========================================== -->
+      <section class="agenda-legend">
+        <div class="legend-item">
+          <span class="legend-color confirmado"></span>
+          Confirmado
+        </div>
+        <div class="legend-item">
+          <span class="legend-color pendente"></span>
+          Pendente
+        </div>
+        <div class="legend-item">
+          <span class="legend-color cancelado"></span>
+          Cancelado
+        </div>
+        <div class="legend-item">
+          <span class="legend-color concluido"></span>
+          Concluído
+        </div>
+      </section>
+      <!-- ==========================================
+             MODAL NOVO AGENDAMENTO
+        =========================================== -->
+      <div class="modal-overlay" id="modalAgendamento">
+        <div class="modal modal-lg">
+          <div class="modal-header">
+            <h2>Novo Agendamento</h2>
+            <button class="btn btn-danger btn-sm" id="fecharModalAgendamento">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="grid-2">
+              <div class="form-group">
+                <label> Paciente </label>
+                <select id="pacienteAgendamento" class="form-control">
+                  <option value="">Selecione um paciente</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label> Profissional </label>
+                <select id="profissionalAgendamento" class="form-control">
+                  <option value="">Selecione um profissional</option>
+                  <option>Dr. Carlos</option>
+                  <option>Dra. Ana</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label> Data </label>
+                <input type="date" id="dataAgendamento" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label> Horário </label>
+                <input type="time" id="horarioAgendamento" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label> Procedimento </label>
+              <input type="text" id="procedimentoAgendamento" class="form-control"
+                placeholder="Ex.: Consulta, Limpeza, Avaliação" />
+            </div>
+            <div class="form-group">
+              <label> Observações </label>
+              <textarea id="observacaoAgendamento" class="form-control" rows="4"
+                placeholder="Digite alguma observação..."></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" id="cancelarAgendamento">
+              Cancelar
+            </button>
+            <button class="btn btn-primary" id="salvarAgendamento">
+              <i class="fa-solid fa-floppy-disk"></i>
+              Salvar Agendamento
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- ==========================================
+             MODAL DETALHES
+        =========================================== -->
+      <div class="modal-overlay" id="modalDetalhesAgendamento">
+        <div class="modal">
+          <div class="modal-header">
+            <h2>Detalhes do Agendamento</h2>
+            <button class="btn btn-danger btn-sm" id="fecharDetalhesAgendamento">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body" id="conteudoDetalhesAgendamento">
+            <!-- Preenchido pelo agenda.js -->
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" id="fecharDetalhes">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- ==========================================
+     SCRIPTS
+========================================== -->
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/table.js"></script>
+  <script src="../assets/js/cards.js"></script>
+  <script src="../assets/js/agenda.js"></script>
+</body>
+
+</html>

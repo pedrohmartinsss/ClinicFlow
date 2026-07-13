@@ -1,0 +1,197 @@
+/* ==========================================================
+   RESET CSS
+   ClinicFlow
+   ========================================================== */
+/* Box Model */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML e Body */
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+
+/* Imagens */
+img,
+picture,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+/* Formulários */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/* Botões */
+button {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+/* Links */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Listas */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Células */
+th,
+td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+}
+
+/* Parágrafos */
+p {
+    margin: 0;
+}
+
+/* Campos de formulário */
+input,
+textarea,
+select {
+    width: 100%;
+}
+
+/* Área de texto */
+textarea {
+    resize: vertical;
+}
+
+/* Placeholder */
+::placeholder {
+    color: inherit;
+    opacity: 0.6;
+}
+
+/* Seleção de texto */
+::selection {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* Scrollbar (Chrome, Edge e Opera) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* Elementos ocultos */
+[hidden] {
+    display: none !important;
+}
+
+/* Desabilitados */
+:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Remove aparência padrão em alguns navegadores */
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+/* Iframes */
+iframe {
+    border: 0;
+}
+
+/* Código */
+code,
+pre {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+}
+
+/* Elementos semânticos */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section {
+    display: block;
+}

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | ClinicFlow</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/servicos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+        <!--====================================
+                SIDEBAR
+    =====================================-->
+        <aside class="sidebar" id="sidebar">
+            <div>
+                <div class="logo">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>ClinicFlow</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                <i class="fa-solid fa-house"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pacientes.html">
+                                <i class="fa-solid fa-users"></i>
+                                Pacientes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="agenda.html">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                Agenda
+                            </a>
+                        </li>
+                        <li>
+                            <a href="profissionais.html">
+                                <i class="fa-solid fa-user-doctor"></i>
+                                Profissionais
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="servicos.html">
+                                <i class="fa-solid fa-stethoscope"></i>
+                                Serviços
+                            </a>
+                        </li>
+                        <li>
+                            <a href="financeiro.html">
+                                <i class="fa-solid fa-wallet"></i>
+                                Financeiro
+                            </a>
+                        </li>
+                        <li>
+                            <a href="relatorios.html">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Relatórios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="configuracoes.html">
+                                <i class="fa-solid fa-gear"></i>
+                                Configurações
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/80?img=12">
+                    <div>
+                        <strong>Administrador</strong>
+                        <span>admin@clinicflow.com</span>
+                    </div>
+                </div>
+                <button class="btn btn-danger" id="btnSair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair
+                </button>
+            </div>
+        </aside>
+        <div class="overlay" id="overlay"></div>
+        <!--====================================
+                CONTEÚDO
+    =====================================-->
+        <main class="content">
+            <!--==============================
+                TOPBAR
+        ==============================-->
+            <header class="topbar">
+                <button class="menu-toggle" id="btnMenu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="page-title-info">
+                    <h1>Serviços</h1>
+                    <p>
+                        Gerencie todos os serviços oferecidos pela clínica.
+                    </p>
+                </div>
+                <div class="topbar-right">
+                    <button class="btn btn-primary" id="btnNovoServico">
+                        <i class="fa-solid fa-plus"></i>
+                        Novo Serviço
+                    </button>
+                </div>
+            </header>
+            <!--==============================
+                CARDS
+        ==============================-->
+            <section class="cards-grid">
+                <div class="dashboard-card">
+                    <div>
+                        <span>Total de Serviços</span>
+                        <h2 id="totalServicos">
+                            0
+                        </h2>
+                    </div>
+                    <div class="card-icon blue">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div>
+                        <span>Serviços Ativos</span>
+                        <h2 id="servicosAtivos">
+                            0
+                        </h2>
+                    </div>
+                    <div class="card-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div>
+                        <span>Serviços Inativos</span>
+                        <h2 id="servicosInativos">
+                            0
+                        </h2>
+                    </div>
+                    <div class="card-icon red">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div>
+                        <span>Ticket Médio</span>
+                        <h2 id="ticketMedio">
+                            R$ 0,00
+                        </h2>
+                    </div>
+                    <div class="card-icon yellow">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+                </div>
+            </section>
+            <!--==============================
+                FILTROS
+        ==============================-->
+            <section class="filters">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="pesquisaServico" placeholder="Pesquisar serviço...">
+                </div>
+                <select id="filtroCategoria">
+                    <option value="todos">
+                        Todas as categorias
+                    </option>
+                </select>
+                <select id="filtroStatus">
+                    <option value="todos">
+                        Todos os status
+                    </option>
+                    <option value="ativo">
+                        Ativo
+                    </option>
+                    <option value="inativo">
+                        Inativo
+                    </option>
+                </select>
+            </section>
+            <!--==============================
+                LISTAGEM
+        ==============================-->
+            <section class="servicos-section">
+                <div class="section-header">
+                    <div>
+                        <h2>
+                            Serviços cadastrados
+                        </h2>
+                        <p>
+                            Visualize e gerencie todos os serviços.
+                        </p>
+                    </div>
+                    <span id="contadorServicos">
+                        0 serviços
+                    </span>
+                </div>
+                <div class="servicos-grid" id="listaServicos">
+                    <!-- Renderizado via JS -->
+                </div>
+            </section>
+            <!--==================================================
+                    MODAL NOVO / EDITAR SERVIÇO
+        ===================================================-->
+            <div class="modal-overlay" id="modalServico">
+                <div class="modal modal-xl">
+                    <div class="modal-header">
+                        <h2 id="tituloModalServico">
+                            Novo Serviço
+                        </h2>
+                        <button class="btn btn-danger btn-sm" id="fecharModalServico">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!--=============================
+                            INFORMAÇÕES
+                    ==============================-->
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Nome do Serviço *
+                                </label>
+                                <input type="text" id="nomeServico" class="form-control"
+                                    placeholder="Ex.: Consulta Inicial">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Categoria *
+                                </label>
+                                <select id="categoriaServico" class="form-control">
+                                    <option value="">
+                                        Selecione
+                                    </option>
+                                    <option>
+                                        Consulta
+                                    </option>
+                                    <option>
+                                        Avaliação
+                                    </option>
+                                    <option>
+                                        Procedimento
+                                    </option>
+                                    <option>
+                                        Exame
+                                    </option>
+                                    <option>
+                                        Estética
+                                    </option>
+                                    <option>
+                                        Outros
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--=============================
+                            DESCRIÇÃO
+                    ==============================-->
+                        <div class="form-group">
+                            <label>
+                                Descrição
+                            </label>
+                            <textarea id="descricaoServico" rows="4" class="form-control"
+                                placeholder="Descrição do serviço..."></textarea>
+                        </div>
+                        <!--=============================
+                            VALORES
+                    ==============================-->
+                        <div class="grid-3">
+                            <div class="form-group">
+                                <label>
+                                    Duração (min.)
+                                </label>
+                                <input type="number" id="duracaoServico" class="form-control" min="5" step="5"
+                                    placeholder="60">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Valor (R$)
+                                </label>
+                                <input type="number" id="valorServico" class="form-control" min="0" step="0.01"
+                                    placeholder="150,00">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Comissão (%)
+                                </label>
+                                <input type="number" id="comissaoServico" class="form-control" min="0" max="100"
+                                    placeholder="40">
+                            </div>
+                        </div>
+                        <!--=============================
+                            PROFISSIONAIS
+                    ==============================-->
+                        <div class="form-group">
+                            <label>
+                                Profissionais habilitados
+                            </label>
+                            <select id="profissionaisServico" class="form-control" multiple>
+                                <!-- Preenchido pelo JS -->
+                            </select>
+                            <small>
+                                Segure CTRL (Windows) ou CMD (Mac) para selecionar vários profissionais.
+                            </small>
+                        </div>
+                        <!--=============================
+                            CONFIGURAÇÕES
+                    ==============================-->
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Cor do Serviço
+                                </label>
+                                <input type="color" id="corServico" class="form-control" value="#2563eb">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Status
+                                </label>
+                                <select id="statusServico" class="form-control">
+                                    <option value="ativo">
+                                        Ativo
+                                    </option>
+                                    <option value="inativo">
+                                        Inativo
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" id="cancelarServico">
+                            Cancelar
+                        </button>
+                        <button class="btn btn-primary" id="salvarServico">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Salvar Serviço
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--==================================================
+                    MODAL VISUALIZAR SERVIÇO
+        ===================================================-->
+            <div class="modal-overlay" id="modalVisualizarServico">
+                <div class="modal modal-lg">
+                    <!--========================
+                        HEADER
+                =========================-->
+                    <div class="modal-header">
+                        <h2>
+                            <i class="fa-solid fa-eye"></i>
+                            Visualizar Serviço
+                        </h2>
+                        <button class="btn btn-danger btn-sm" id="fecharVisualizarServico">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <!--========================
+                        BODY
+                =========================-->
+                    <div class="modal-body">
+                        <div class="visualizar-servico">
+                            <!-- Cabeçalho -->
+                            <div class="visualizar-topo">
+                                <div class="visualizar-icone">
+                                    <i class="fa-solid fa-stethoscope"></i>
+                                </div>
+                                <div>
+                                    <h2 id="viewNomeServico">
+                                        Consulta Inicial
+                                    </h2>
+                                    <span id="viewCategoriaServico" class="badge badge-primary">
+                                        Consulta
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Informações -->
+                            <div class="visualizar-grid">
+                                <div class="info-card">
+                                    <span>Duração</span>
+                                    <strong id="viewDuracao">
+                                        60 minutos
+                                    </strong>
+                                </div>
+                                <div class="info-card">
+                                    <span>Valor</span>
+                                    <strong id="viewValor">
+                                        R$ 150,00
+                                    </strong>
+                                </div>
+                                <div class="info-card">
+                                    <span>Comissão</span>
+                                    <strong id="viewComissao">
+                                        40%
+                                    </strong>
+                                </div>
+                                <div class="info-card">
+                                    <span>Status</span>
+                                    <strong id="viewStatus">
+                                        Ativo
+                                    </strong>
+                                </div>
+                            </div>
+                            <!-- Cor -->
+                            <div class="info-section">
+                                <h3>
+                                    <i class="fa-solid fa-palette"></i>
+                                    Cor do Serviço
+                                </h3>
+                                <div class="servico-cor">
+                                    <div id="viewCorServico" class="cor-preview">
+                                    </div>
+                                    <span id="viewCodigoCor">
+                                        #2563EB
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Descrição -->
+                            <div class="info-section">
+                                <h3>
+                                    <i class="fa-solid fa-align-left"></i>
+                                    Descrição
+                                </h3>
+                                <p id="viewDescricao">
+                                    Nenhuma descrição cadastrada.
+                                </p>
+                            </div>
+                            <!-- Profissionais -->
+                            <div class="info-section">
+                                <h3>
+                                    <i class="fa-solid fa-user-doctor"></i>
+                                    Profissionais habilitados
+                                </h3>
+                                <div id="viewProfissionais" class="profissionais-tags">
+                                    <!-- JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--========================
+                        FOOTER
+                =========================-->
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" id="btnFecharVisualizarServico">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--==================================================
+                SCRIPTS
+===================================================-->
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/cards.js"></script>
+    <script src="../assets/js/table.js"></script>
+    <script src="../assets/js/servicos.js"></script>
+</body>
+
+</html>

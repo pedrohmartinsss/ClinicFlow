@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClinicFlow | Pacientes</title>
+    <!-- CSS BASE -->
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/variables.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/pacientes.css" />
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
+      <aside class="sidebar" id="sidebar">
+        <div>
+          <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span> ClinicFlow </span>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <a href="dashboard.html">
+                  <i class="fa-solid fa-house"></i>
+                  Dashboard
+                </a>
+              </li>
+              <li class="active">
+                <a href="pacientes.html">
+                  <i class="fa-solid fa-users"></i>
+                  Pacientes
+                </a>
+              </li>
+              <li>
+                <a href="agenda.html">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  Agenda
+                </a>
+              </li>
+              <li>
+                <a href="profissionais.html">
+                  <i class="fa-solid fa-user-doctor"></i>
+                  Profissionais
+                </a>
+              </li>
+              <li>
+                <a href="servicos.html">
+                  <i class="fa-solid fa-stethoscope"></i>
+                  Serviços
+                </a>
+              </li>
+              <li>
+                <a href="financeiro.html">
+                  <i class="fa-solid fa-wallet"></i>
+                  Financeiro
+                </a>
+              </li>
+              <li>
+                <a href="relatorios.html">
+                  <i class="fa-solid fa-chart-line"></i>
+                  Relatórios
+                </a>
+              </li>
+              <li>
+                <a href="configuracoes.html">
+                  <i class="fa-solid fa-gear"></i>
+                  Configurações
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="sidebar-footer">
+          <div class="user">
+            <img src="https://i.pravatar.cc/80?img=12" />
+            <div>
+              <strong> Administrador </strong>
+              <span> admin@clinicflow.com </span>
+            </div>
+          </div>
+          <button class="btn btn-danger" id="btnSair">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Sair
+          </button>
+        </div>
+      </aside>
+      <div id="overlay" class="overlay"></div>
+      <!-- ==================================================
+         CONTEÚDO PRINCIPAL
+    =================================================== -->
+      <main class="content">
+        <!-- HEADER -->
+        <header class="topbar">
+          <button id="btnMenu" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pesquisar pacientes..."
+            />
+          </div>
+          <div class="actions">
+            <button>
+              <i class="fa-regular fa-bell"></i>
+            </button>
+            <button>
+              <i class="fa-regular fa-envelope"></i>
+            </button>
+            <button>
+              <i class="fa-solid fa-gear"></i>
+            </button>
+          </div>
+        </header>
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb p-3">
+          <span> Início </span>
+          <i class="fa-solid fa-angle-right"></i>
+          <span> Pacientes </span>
+        </div>
+        <!-- TÍTULO -->
+        <section class="page-title">
+          <div>
+            <h1>Pacientes</h1>
+            <p>Gerencie todos os pacientes cadastrados na clínica.</p>
+          </div>
+          <button class="btn btn-primary" id="btnNovoPaciente">
+            <i class="fa-solid fa-user-plus"></i>
+            Novo Paciente
+          </button>
+        </section>
+        <!-- CARDS RESUMO -->
+        <section class="cards">
+          <div class="stats-card hover-lift">
+            <div class="stats-info">
+              <span> Total de Pacientes </span>
+              <h2>248</h2>
+            </div>
+            <div class="stats-icon">
+              <i class="fa-solid fa-users"></i>
+            </div>
+          </div>
+          <div class="stats-card hover-lift">
+            <div class="stats-info">
+              <span> Novos este mês </span>
+              <h2>32</h2>
+            </div>
+            <div class="stats-icon">
+              <i class="fa-solid fa-user-plus"></i>
+            </div>
+          </div>
+          <div class="stats-card hover-lift">
+            <div class="stats-info">
+              <span> Consultas realizadas </span>
+              <h2>486</h2>
+            </div>
+            <div class="stats-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+          </div>
+          <div class="stats-card hover-lift">
+            <div class="stats-info">
+              <span> Aniversariantes </span>
+              <h2>8</h2>
+            </div>
+            <div class="stats-icon">
+              <i class="fa-solid fa-cake-candles"></i>
+            </div>
+          </div>
+        </section>
+        <!-- ==================================================
+             FILTROS DE PACIENTES
+        =================================================== -->
+        <section class="container">
+          <div class="panel fade-in">
+            <div class="panel-body">
+              <div class="filters">
+                <div class="filters-left">
+                  <div class="input-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="pesquisaPaciente"
+                      placeholder="Nome, CPF ou telefone"
+                    />
+                  </div>
+                  <select class="form-control" id="filtroStatus">
+                    <option value="todos">Todos os pacientes</option>
+                    <option value="ativo">Ativos</option>
+                    <option value="inativo">Inativos</option>
+                  </select>
+                </div>
+                <div class="filters-right">
+                  <button class="btn btn-secondary">
+                    <i class="fa-solid fa-filter"></i>
+                    Filtros
+                  </button>
+                  <button class="btn btn-primary">
+                    <i class="fa-solid fa-download"></i>
+                    Exportar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==================================================
+             TABELA DE PACIENTES
+        =================================================== -->
+        <section class="container">
+          <div class="panel fade-in">
+            <div class="panel-header">
+              <div class="d-flex justify-between align-center">
+                <h3>Lista de Pacientes</h3>
+                <span class="badge badge-info"> 248 cadastrados </span>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table" id="tabelaPacientes">
+                  <thead>
+                    <tr>
+                      <th>Paciente</th>
+                      <th>CPF</th>
+                      <th>Telefone</th>
+                      <th>Última Consulta</th>
+                      <th>Status</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-status="ativo">
+                      <td>
+                        <div class="d-flex align-center gap-2">
+                          <img
+                            class="avatar"
+                            src="https://i.pravatar.cc/80?img=47"
+                          />
+                          <div>
+                            <strong> Maria Oliveira </strong>
+                            <p>maria@email.com</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>123.456.789-00</td>
+                      <td>(31) 99999-9999</td>
+                      <td>08/07/2026</td>
+                      <td>
+                        <span class="status status-confirmado"> Ativo </span>
+                      </td>
+                      <td>
+                        <div class="d-flex gap-1">
+                          <button
+                            class="btn btn-secondary btn-sm"
+                            title="Visualizar"
+                          >
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm" title="Editar">
+                            <i class="fa-solid fa-pen"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm" title="Excluir">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-status="ativo">
+                      <td>
+                        <div class="d-flex align-center gap-2">
+                          <img
+                            class="avatar"
+                            src="https://i.pravatar.cc/80?img=32"
+                          />
+                          <div>
+                            <strong> João Pedro Santos </strong>
+                            <p>joao@email.com</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>987.654.321-00</td>
+                      <td>(31) 98888-7777</td>
+                      <td>04/07/2026</td>
+                      <td>
+                        <span class="status status-confirmado"> Ativo </span>
+                      </td>
+                      <td>
+                        <div class="d-flex gap-1">
+                          <button class="btn btn-secondary btn-sm">
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm">
+                            <i class="fa-solid fa-pen"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr data-status="inativo">
+                      <td>
+                        <div class="d-flex align-center gap-2">
+                          <img
+                            class="avatar"
+                            src="https://i.pravatar.cc/80?img=15"
+                          />
+                          <div>
+                            <strong> Carlos Henrique </strong>
+                            <p>carlos@email.com</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>456.789.123-00</td>
+                      <td>(31) 97777-6666</td>
+                      <td>15/05/2026</td>
+                      <td>
+                        <span class="status status-cancelado"> Inativo </span>
+                      </td>
+                      <td>
+                        <div class="d-flex gap-1">
+                          <button class="btn btn-secondary btn-sm">
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm">
+                            <i class="fa-solid fa-pen"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- PAGINAÇÃO -->
+              <div class="pagination">
+                <button>
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==================================================
+             MODAL NOVO PACIENTE
+        =================================================== -->
+        <div class="modal-overlay" id="modalPaciente">
+          <div class="modal">
+            <div class="modal-header">
+              <h3>Novo Paciente</h3>
+              <button class="btn btn-danger btn-sm" id="fecharModalPaciente">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="grid-2">
+                <div class="form-group">
+                  <label> Nome completo </label>
+                  <input
+                    class="form-control"
+                    id="nomePaciente"
+                    placeholder="Digite o nome"
+                  />
+                </div>
+                <div class="form-group">
+                  <label> CPF </label>
+                  <input class="form-control" placeholder="000.000.000-00" />
+                </div>
+                <div class="form-group">
+                  <label> Data de nascimento </label>
+                  <input type="date" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label> Sexo </label>
+                  <select class="form-control">
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                    <option>Outro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label> Telefone </label>
+                  <input class="form-control" placeholder="(00) 00000-0000" />
+                </div>
+                <div class="form-group">
+                  <label> Email </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="email@email.com"
+                  />
+                </div>
+              </div>
+              <div class="divider"></div>
+              <h4>Informações adicionais</h4>
+              <div class="grid-2">
+                <div class="form-group">
+                  <label> Convênio </label>
+                  <input class="form-control" placeholder="Plano de saúde" />
+                </div>
+                <div class="form-group">
+                  <label> Alergias </label>
+                  <input class="form-control" placeholder="Informe alergias" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label> Observações </label>
+                <textarea
+                  class="form-control"
+                  placeholder="Informações clínicas importantes"
+                ></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" id="cancelarPaciente">
+                Cancelar
+              </button>
+              <button class="btn btn-primary" id="salvarPaciente">
+                <i class="fa-solid fa-save"></i>
+                Salvar Paciente
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- ==================================================
+             MODAL DETALHES PACIENTE
+        =================================================== -->
+        <div class="modal-overlay" id="modalDetalhesPaciente">
+          <div class="modal">
+            <div class="modal-header">
+              <div class="d-flex align-center gap-2">
+                <img class="avatar" src="https://i.pravatar.cc/80?img=47" />
+                <div>
+                  <h3>Maria Oliveira</h3>
+                  <small> Paciente desde 02/01/2026 </small>
+                </div>
+              </div>
+              <button
+                class="btn btn-danger btn-sm"
+                id="fecharVisualizarPaciente"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- ABAS -->
+              <div class="tabs">
+                <div class="tab active">Dados</div>
+                <div class="tab">Consultas</div>
+                <div class="tab">Financeiro</div>
+                <div class="tab">Documentos</div>
+                <div class="tab">Observações</div>
+              </div>
+              <div class="panel-body">
+                <div class="grid-2">
+                  <div>
+                    <strong> CPF </strong>
+                    <p>123.456.789-00</p>
+                  </div>
+                  <div>
+                    <strong> Telefone </strong>
+                    <p>(31) 99999-9999</p>
+                  </div>
+                  <div>
+                    <strong> Email </strong>
+                    <p>maria@email.com</p>
+                  </div>
+                  <div>
+                    <strong> Convênio </strong>
+                    <p>Particular</p>
+                  </div>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <h4>Últimas consultas</h4>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <strong> 08/07/2026 </strong>
+                  <p>Consulta de rotina realizada.</p>
+                </div>
+                <div class="timeline-item">
+                  <strong> 20/06/2026 </strong>
+                  <p>Retorno médico.</p>
+                </div>
+                <div class="timeline-item">
+                  <strong> 10/05/2026 </strong>
+                  <p>Avaliação inicial.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- =================================================
+             FOOTER
+        =================================================== -->
+        <footer>
+          <p>
+            ClinicFlow © 2026
+            <strong> Versão 1.0.0 </strong>
+          </p>
+        </footer>
+      </main>
+    </div>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/table.js"></script>
+    <script src="../assets/js/cards.js"></script>
+    <script src="../assets/js/pacientes.js"></script>
+  </body>
+</html>

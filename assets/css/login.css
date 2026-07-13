@@ -1,0 +1,338 @@
+/* ==========================================================
+   LOGIN - ClinicFlow
+   ========================================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f4f7fb;
+    color: #1e293b;
+}
+
+/* ==========================================================
+   Layout
+   ========================================================== */
+.login-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================================================
+   Lado Esquerdo
+   ========================================================== */
+.login-left {
+    width: 50%;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+.brand {
+    margin-bottom: 60px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.brand p {
+    margin-top: 15px;
+    line-height: 1.7;
+    opacity: .9;
+    font-size: 18px;
+}
+
+.presentation h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+.presentation p {
+    line-height: 1.8;
+    opacity: .95;
+    margin-bottom: 35px;
+}
+
+.presentation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.presentation li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+}
+
+.presentation i {
+    color: #86efac;
+}
+
+/* ==========================================================
+   Lado Direito
+   ========================================================== */
+.login-right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8fafc;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   Card
+   ========================================================== */
+.login-card {
+    width: 100%;
+    max-width: 470px;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 45px;
+    box-shadow:
+        0 12px 40px rgba(15, 23, 42, .08);
+}
+
+.system-name {
+    display: inline-block;
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.login-card h2 {
+    margin: 0;
+    font-size: 34px;
+}
+
+.subtitle {
+    margin-top: 10px;
+    margin-bottom: 35px;
+    color: #64748b;
+}
+
+/* ==========================================================
+   Formulário
+   ========================================================== */
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.input-icon input {
+    width: 100%;
+    height: 55px;
+    padding-left: 50px;
+    padding-right: 15px;
+    border-radius: 12px;
+    border: 1px solid #dbe2ea;
+    font-size: 15px;
+    outline: none;
+    transition: .25s;
+    box-sizing: border-box;
+}
+
+.input-icon input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+}
+
+/* ==========================================================
+   Opções
+   ========================================================== */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.options a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #475569;
+}
+
+.login-error {
+    display: none;
+    color: #dc2626;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ==========================================================
+   Botão Principal
+   ========================================================== */
+.btn-login {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-login:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================
+   Separador
+   ========================================================== */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.separator span {
+    padding: 0 18px;
+    color: #94a3b8;
+}
+
+/* ==========================================================
+   Google
+   ========================================================== */
+.btn-google {
+    width: 100%;
+    height: 55px;
+    border-radius: 12px;
+    border: 1px solid #dbe2ea;
+    background: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: .3s;
+}
+
+.btn-google:hover {
+    background: #f8fafc;
+}
+
+/* ==========================================================
+   Rodapé
+   ========================================================== */
+.footer {
+    margin-top: 35px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* ==========================================================
+   Responsivo
+   ========================================================== */
+@media (max-width: 992px) {
+
+    .login-left {
+        display: none;
+    }
+
+    .login-right {
+        width: 100%;
+    }
+
+    .login-card {
+        max-width: 500px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .login-right {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 30px;
+    }
+
+    .login-card h2 {
+        font-size: 28px;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+}

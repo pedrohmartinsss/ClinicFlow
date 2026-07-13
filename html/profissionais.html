@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profissionais | ClinicFlow</title>
+    <!-- CSS BASE -->
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/variables.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <!-- CSS DO MÓDULO -->
+    <link rel="stylesheet" href="../assets/css/profissionais.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div>
+          <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>ClinicFlow</span>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <a href="dashboard.html">
+                  <i class="fa-solid fa-house"></i>
+                  Dashboard
+                </a>
+              </li>
+
+              <li>
+                <a href="pacientes.html">
+                  <i class="fa-solid fa-users"></i>
+                  Pacientes
+                </a>
+              </li>
+
+              <li>
+                <a href="agenda.html">
+                  <i class="fa-solid fa-calendar"></i>
+                  Agenda
+                </a>
+              </li>
+
+              <li class="active">
+                <a href="profissionais.html" class="active">
+                  <i class="fa-solid fa-user-doctor"></i>
+                  Profissionais
+                </a>
+              </li>
+              <li>
+                <a href="servicos.html">
+                  <i class="fa-solid fa-stethoscope"></i>
+                  Serviços
+                </a>
+              </li>
+              <li>
+                <a href="financeiro.html">
+                  <i class="fa-solid fa-wallet"></i>
+                  Financeiro
+                </a>
+              </li>
+              <li>
+                <a href="relatorios.html">
+                  <i class="fa-solid fa-chart-line"></i>
+                  Relatórios
+                </a>
+              </li>
+              <li>
+                <a href="configuracoes.html">
+                  <i class="fa-solid fa-gear"></i>
+                  Configurações
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="sidebar-footer">
+          <div class="user">
+            <img src="https://i.pravatar.cc/80?img=12" />
+            <div>
+              <strong>Administrador</strong>
+              <span>admin@clinicflow.com</span>
+            </div>
+          </div>
+          <button class="btn btn-danger" id="btnSair">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Sair
+          </button>
+        </div>
+      </aside>
+      <div id="overlay" class="overlay"></div>
+      <header class="topbar">
+        <button id="btnMenu" class="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </header>
+      <!-- CONTEÚDO -->
+      <main class="main-content">
+        <section class="page-title">
+          <div>
+            <h1>Profissionais</h1>
+            <p>Gerencie os profissionais cadastrados.</p>
+          </div>
+          <button class="btn btn-primary" id="btnNovoProfissional">
+            <i class="fa-solid fa-user-plus"></i>
+            Novo Profissional
+          </button>
+        </section>
+        <!--
+            FILTROS E PESQUISA
+        -->
+        <section class="content-card">
+          <div class="filters">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                id="pesquisaProfissional"
+                placeholder="Pesquisar profissional"
+              />
+            </div>
+            <select id="filtroEspecialidade" class="form-control">
+              <option value="todos">Todas as especialidades</option>
+            </select>
+            <select id="filtroStatusProfissional" class="form-control">
+              <option value="todos">Todos os status</option>
+              <option value="ativo">Ativos</option>
+              <option value="inativo">Inativos</option>
+            </select>
+          </div>
+        </section>
+        <!--
+            LISTAGEM DOS PROFISSIONAIS
+        -->
+        <section class="content-card">
+          <div class="section-header">
+            <div>
+              <h2>Profissionais cadastrados</h2>
+              <p>Visualize e gerencie sua equipe.</p>
+            </div>
+            <span class="badge" id="contadorProfissionais">
+              0 profissionais
+            </span>
+          </div>
+          <div class="professionals-grid" id="listaProfissionais">
+            <!--
+                    CARDS GERADOS PELO JAVASCRIPT
+                -->
+          </div>
+        </section>
+        <!--
+            MODAL NOVO / EDITAR PROFISSIONAL
+        -->
+        <div class="modal-overlay" id="modalProfissional">
+          <div class="modal modal-lg">
+            <div class="modal-header">
+              <h2 id="tituloModalProfissional">Novo Profissional</h2>
+              <button
+                class="btn btn-danger btn-sm"
+                id="fecharModalProfissional"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="grid-2">
+                <div class="form-group">
+                  <label> Nome completo </label>
+                  <input
+                    type="text"
+                    id="nomeProfissional"
+                    class="form-control"
+                    placeholder="Digite o nome do profissional"
+                  />
+                </div>
+                <div class="form-group">
+                  <label> Especialidade </label>
+                  <input
+                    type="text"
+                    id="especialidadeProfissional"
+                    class="form-control"
+                    placeholder="Ex.: Dermatologia"
+                  />
+                </div>
+                <div class="form-group">
+                  <label> Registro profissional </label>
+                  <input
+                    type="text"
+                    id="registroProfissional"
+                    class="form-control"
+                    placeholder="CRM, CRO, CRP..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label> Telefone </label>
+                  <input
+                    type="tel"
+                    id="telefoneProfissional"
+                    class="form-control"
+                    placeholder="(00) 00000-0000"
+                  />
+                </div>
+                <div class="form-group">
+                  <label> E-mail </label>
+                  <input
+                    type="email"
+                    id="emailProfissional"
+                    class="form-control"
+                    placeholder="email@exemplo.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label> Status </label>
+                  <select id="statusProfissional" class="form-control">
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label> Horário de atendimento </label>
+                <textarea
+                  id="horarioProfissional"
+                  class="form-control"
+                  rows="3"
+                  placeholder="Ex.: Segunda a sexta - 08:00 às 18:00"
+                >
+                </textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" id="cancelarProfissional">
+                Cancelar
+              </button>
+              <button class="btn btn-primary" id="salvarProfissional">
+                <i class="fa-solid fa-floppy-disk"></i>
+                Salvar Profissional
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="modalVisualizarProfissional" class="modal-overlay">
+          <div class="modal modal-md">
+            <div class="modal-header">
+              <h2>
+                <i class="fa-solid fa-eye"></i>
+                Visualizar Profissional
+              </h2>
+              <button class="btn btn-danger btn-sm" id="fecharVisualizacao">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="modal-body" id="conteudoVisualizacaoProfissional">
+              <!-- conteúdo preenchido via JS -->
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" id="btnFecharVisualizacao">
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- JS BASE -->
+    <script src="../assets/js/storage.js"></script>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <!-- JS DO MÓDULO -->
+    <script src="../assets/js/profissionais.js"></script>
+  </body>
+</html>
