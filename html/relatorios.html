@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Relatórios | ClinicFlow
+    </title>
+    <!--Icone da pagina-->
+    <link rel="icon" type="image/png" href="../assets/images/Icone2.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/core/global.css">
+    <link rel="stylesheet" href="../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../assets/css/core/reset.css">
+    <link rel="stylesheet" href="../assets/css/pages/relatorios.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="layout">
+        <!--====================================
+            SIDEBAR
+    =====================================-->
+        <aside class="sidebar" id="sidebar">
+            <div>
+                <div class="logo">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>ClinicFlow</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                <i class="fa-solid fa-house"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pacientes.html">
+                                <i class="fa-solid fa-users"></i>
+                                Pacientes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="agenda.html">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                Agenda
+                            </a>
+                        </li>
+                        <li>
+                            <a href="profissionais.html">
+                                <i class="fa-solid fa-user-doctor"></i>
+                                Profissionais
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicos.html">
+                                <i class="fa-solid fa-stethoscope"></i>
+                                Serviços
+                            </a>
+                        </li>
+                        <li>
+                            <a href="financeiro.html">
+                                <i class="fa-solid fa-wallet"></i>
+                                Financeiro
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="relatorios.html">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Relatórios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="configuracoes.html">
+                                <i class="fa-solid fa-gear"></i>
+                                Configurações
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/80?img=12">
+                    <div>
+                        <strong>Administrador</strong>
+                        <span>admin@clinicflow.com</span>
+                    </div>
+                </div>
+                <button class="btn btn-danger" id="btnSair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair
+                </button>
+            </div>
+        </aside>
+        <div class="overlay" id="overlay"></div>
+        <!--====================================
+            CONTEÚDO
+    =====================================-->
+        <main class="content">
+            <!--====================================
+                TOPBAR
+        =====================================-->
+            <header class="topbar">
+                <button id="btnMenu" class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="page-title-info">
+                    <h1>
+                        Relatórios
+                    </h1>
+                    <p>
+                        Analise indicadores, desempenho e resultados da clínica.
+                    </p>
+                </div>
+                <div class="topbar-right">
+                    <button class="btn btn-success" id="btnExportarRelatorios">
+                        <i class="fa-solid fa-file-export"></i>
+                        Exportar
+                    </button>
+                </div>
+            </header>
+            <!--====================================
+                KPIs
+        =====================================-->
+            <section class="relatorios-dashboard">
+                <div class="dashboard-card receita">
+                    <div>
+                        <span>
+                            Receita Total
+                        </span>
+                        <h2 id="kpiReceita">
+                            R$ 0,00
+                        </h2>
+                    </div>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+                <div class="dashboard-card despesa">
+                    <div>
+                        <span>
+                            Despesas
+                        </span>
+                        <h2 id="kpiDespesas">
+                            R$ 0,00
+                        </h2>
+                    </div>
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+                <div class="dashboard-card lucro">
+                    <div>
+                        <span>
+                            Lucro Líquido
+                        </span>
+                        <h2 id="kpiLucro">
+                            R$ 0,00
+                        </h2>
+                    </div>
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="dashboard-card pacientes">
+                    <div>
+                        <span>
+                            Pacientes
+                        </span>
+                        <h2 id="kpiPacientes">
+                            0
+                        </h2>
+                    </div>
+                    <i class="fa-solid fa-user-group"></i>
+                </div>
+                <div class="dashboard-card consultas">
+                    <div>
+                        <span>
+                            Consultas
+                        </span>
+                        <h2 id="kpiConsultas">
+                            0
+                        </h2>
+                    </div>
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div class="dashboard-card ticket">
+                    <div>
+                        <span>
+                            Ticket Médio
+                        </span>
+                        <h2 id="kpiTicket">
+                            R$ 0,00
+                        </h2>
+                    </div>
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+            </section>
+            <!--====================================
+                FILTROS
+        =====================================-->
+            <section class="relatorios-filtros">
+                <div class="form-group">
+                    <label>
+                        Período
+                    </label>
+                    <select id="filtroPeriodo" class="form-control">
+                        <option value="hoje">
+                            Hoje
+                        </option>
+                        <option value="semana">
+                            Esta Semana
+                        </option>
+                        <option value="mes" selected>
+                            Este Mês
+                        </option>
+                        <option value="ano">
+                            Este Ano
+                        </option>
+                        <option value="personalizado">
+                            Personalizado
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Data Inicial
+                    </label>
+                    <input type="date" id="dataInicial" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Data Final
+                    </label>
+                    <input type="date" id="dataFinal" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>
+                        Profissional
+                    </label>
+                    <select id="filtroProfissional" class="form-control">
+                        <option value="todos">
+                            Todos
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Serviço
+                    </label>
+                    <select id="filtroServico" class="form-control">
+                        <option value="todos">
+                            Todos
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Status Financeiro
+                    </label>
+                    <select id="filtroStatus" class="form-control">
+                        <option value="todos">
+                            Todos
+                        </option>
+                        <option value="pago">
+                            Pago
+                        </option>
+                        <option value="pendente">
+                            Pendente
+                        </option>
+                        <option value="cancelado">
+                            Cancelado
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-primary" id="btnAtualizarRelatorios">
+                        <i class="fa-solid fa-rotate"></i>
+                        Atualizar
+                    </button>
+                </div>
+            </section>
+            <!--====================================
+                GRÁFICOS
+        =====================================-->
+            <section class="relatorios-graficos">
+                <!-- Receita x Despesa -->
+                <div class="grafico-card grafico-grande">
+                    <div class="grafico-header">
+                        <h2>
+                            Receita x Despesas
+                        </h2>
+                    </div>
+                    <div class="grafico-body">
+                        <canvas id="graficoFinanceiro"></canvas>
+                    </div>
+                </div>
+                <!-- Evolução Mensal -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h2>
+                            Evolução Mensal
+                        </h2>
+                    </div>
+                    <div class="grafico-body">
+                        <canvas id="graficoEvolucao"></canvas>
+                    </div>
+                </div>
+                <!-- Serviços -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h2>
+                            Serviços Mais Realizados
+                        </h2>
+                    </div>
+                    <div class="grafico-body">
+                        <canvas id="graficoServicos"></canvas>
+                    </div>
+                </div>
+                <!-- Profissionais -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h2>
+                            Faturamento por Profissional
+                        </h2>
+                    </div>
+                    <div class="grafico-body">
+                        <canvas id="graficoProfissionais"></canvas>
+                    </div>
+                </div>
+                <!-- Pacientes -->
+                <div class="grafico-card">
+                    <div class="grafico-header">
+                        <h2>
+                            Novos Pacientes
+                        </h2>
+                    </div>
+                    <div class="grafico-body">
+                        <canvas id="graficoPacientes"></canvas>
+                    </div>
+                </div>
+            </section>
+            <!--====================================
+                RESUMO ANALÍTICO
+        =====================================-->
+            <section class="relatorios-resumo">
+                <div class="resumo-card">
+                    <h3>
+                        Melhor Serviço
+                    </h3>
+                    <h2 id="melhorServico">
+                        -
+                    </h2>
+                    <span id="quantidadeMelhorServico">
+                        0 atendimentos
+                    </span>
+                </div>
+                <div class="resumo-card">
+                    <h3>
+                        Melhor Profissional
+                    </h3>
+                    <h2 id="melhorProfissional">
+                        -
+                    </h2>
+                    <span id="faturamentoProfissional">
+                        R$ 0,00
+                    </span>
+                </div>
+                <div class="resumo-card">
+                    <h3>
+                        Paciente Mais Ativo
+                    </h3>
+                    <h2 id="pacienteFrequente">
+                        -
+                    </h2>
+                    <span id="consultasPaciente">
+                        0 consultas
+                    </span>
+                </div>
+                <div class="resumo-card">
+                    <h3>
+                        Crescimento
+                    </h3>
+                    <h2 id="crescimentoMensal">
+                        0%
+                    </h2>
+                    <span>
+                        Comparado ao período anterior
+                    </span>
+                </div>
+            </section>
+            <!--====================================
+                TABELAS
+        =====================================-->
+            <section class="relatorios-tabelas">
+                <!--==============================
+                    TOP SERVIÇOS
+            ==============================-->
+                <div class="tabela-card">
+                    <div class="tabela-header">
+                        <h2>
+                            Serviços Mais Vendidos
+                        </h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Serviço</th>
+                                    <th>Atendimentos</th>
+                                    <th>Receita</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaTopServicos">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--==============================
+                    TOP PACIENTES
+            ==============================-->
+                <div class="tabela-card">
+                    <div class="tabela-header">
+                        <h2>
+                            Pacientes Mais Frequentes
+                        </h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Paciente</th>
+                                    <th>Consultas</th>
+                                    <th>Total Pago</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaTopPacientes">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--==============================
+                    CONTAS EM ABERTO
+            ==============================-->
+                <div class="tabela-card tabela-full">
+                    <div class="tabela-header">
+                        <h2>
+                            Contas Pendentes
+                        </h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Paciente</th>
+                                    <th>Valor</th>
+                                    <th>Vencimento</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaPendencias">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <!--====================================
+                MODAL EXPORTAÇÃO
+        =====================================-->
+            <div class="modal-overlay" id="modalExportarRelatorios">
+                <div class="modal modal-md">
+                    <div class="modal-header">
+                        <h2>
+                            Exportar Relatórios
+                        </h2>
+                        <button class="btn btn-danger btn-sm" id="fecharModalExportar">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="exportar-opcoes">
+                            <button class="btn btn-danger btn-lg" id="exportarPDF">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Exportar PDF
+                            </button>
+                            <button class="btn btn-success btn-lg" id="exportarExcel">
+                                <i class="fa-solid fa-file-excel"></i>
+                                Exportar Excel
+                            </button>
+                            <button class="btn btn-info btn-lg" id="exportarCSV">
+                                <i class="fa-solid fa-file-csv"></i>
+                                Exportar CSV
+                            </button>
+                            <button class="btn btn-primary btn-lg" id="imprimirRelatorio">
+                                <i class="fa-solid fa-print"></i>
+                                Imprimir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!--====================================
+        BIBLIOTECAS
+=====================================-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <!--===================================
+        SCRIPTS DO SISTEMA
+=====================================-->
+    <script src="../assets/js/core/storage.js"></script>
+    <script src="../assets/js/core/utils.js"></script>
+    <script src="../assets/js/core/modal.js"></script>
+    <script src="../assets/js/core/auth.js"></script>
+    <script src="../assets/js/core/sidebar.js"></script>
+    <script src="../assets/js/pages/relatorios.js"></script>
+</body>
+
+</html>

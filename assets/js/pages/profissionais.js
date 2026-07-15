@@ -361,6 +361,17 @@ function configurarFiltros() {
   atualizarFiltroEspecialidades();
 }
 /* ==========================================================
+AÇÕES
+========================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const btnSair = document.querySelector("#btnSair");
+  if (btnSair) {
+    btnSair.addEventListener("click", () => {
+      Auth.logout();
+    });
+  }
+});
+/* ==========================================================
    ATUALIZA ESPECIALIDADES
 ========================================================== */
 function atualizarFiltroEspecialidades() {

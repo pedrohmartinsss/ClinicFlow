@@ -1,573 +1,555 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ClinicFlow | Dashboard</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/reset.css" />
-    <link rel="stylesheet" href="../assets/css/variables.css" />
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link rel="stylesheet" href="../assets/css/dashboard.css" />
-    <!-- Fonte -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <div class="layout">
-      <!-- ===========================
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClinicFlow | Dashboard</title>
+  <!--Icone da pagina-->
+  <link rel="icon" type="image/png" href="../assets/images/Icone2.png">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/core/reset.css" />
+  <link rel="stylesheet" href="../assets/css/core/variables.css" />
+  <link rel="stylesheet" href="../assets/css/core/global.css" />
+  <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <!-- ===========================
          SIDEBAR
          ============================ -->
-      <aside class="sidebar" id="sidebar">
-        <div>
-          <div class="logo">
-            <i class="fa-solid fa-heart-pulse"></i>
-            <span>ClinicFlow</span>
-          </div>
-          <nav>
-            <ul>
-              <li class="active">
-                <a href="dashboard.html">
-                  <i class="fa-solid fa-house"></i>
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a href="pacientes.html">
-                  <i class="fa-solid fa-users"></i>
-                  Pacientes
-                </a>
-              </li>
-              <li>
-                <a href="agenda.html">
-                  <i class="fa-solid fa-calendar-days"></i>
-                  Agenda
-                </a>
-              </li>
-              <li>
-                <a href="profissionais.html">
-                  <i class="fa-solid fa-user-doctor"></i>
-                  Profissionais
-                </a>
-              </li>
-              <li>
-                <a href="servicos.html">
-                  <i class="fa-solid fa-stethoscope"></i>
-                  Serviços
-                </a>
-              </li>
-              <li>
-                <a href="financeiro.html">
-                  <i class="fa-solid fa-wallet"></i>
-                  Financeiro
-                </a>
-              </li>
-              <li>
-                <a href="relatorios.html">
-                  <i class="fa-solid fa-chart-line"></i>
-                  Relatórios
-                </a>
-              </li>
-              <li>
-                <a href="configuracoes.html">
-                  <i class="fa-solid fa-gear"></i>
-                  Configurações
-                </a>
-              </li>
-            </ul>
-          </nav>
+    <aside class="sidebar" id="sidebar">
+      <div>
+        <div class="logo">
+          <i class="fa-solid fa-heart-pulse"></i>
+          <span>ClinicFlow</span>
         </div>
-        <div class="sidebar-footer">
-          <div class="user">
-            <img src="https://i.pravatar.cc/80?img=12" />
-            <div>
-              <strong>Administrador</strong>
-              <span>admin@clinicflow.com</span>
-            </div>
+        <nav>
+          <ul>
+            <li class="active">
+              <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="pacientes.html">
+                <i class="fa-solid fa-users"></i>
+                Pacientes
+              </a>
+            </li>
+            <li>
+              <a href="agenda.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Agenda
+              </a>
+            </li>
+            <li>
+              <a href="profissionais.html">
+                <i class="fa-solid fa-user-doctor"></i>
+                Profissionais
+              </a>
+            </li>
+            <li>
+              <a href="servicos.html">
+                <i class="fa-solid fa-stethoscope"></i>
+                Serviços
+              </a>
+            </li>
+            <li>
+              <a href="financeiro.html">
+                <i class="fa-solid fa-wallet"></i>
+                Financeiro
+              </a>
+            </li>
+            <li>
+              <a href="relatorios.html">
+                <i class="fa-solid fa-chart-line"></i>
+                Relatórios
+              </a>
+            </li>
+            <li>
+              <a href="configuracoes.html">
+                <i class="fa-solid fa-gear"></i>
+                Configurações
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user">
+          <img src="https://i.pravatar.cc/80?img=12" />
+          <div>
+            <strong>Administrador</strong>
+            <span>admin@clinicflow.com</span>
           </div>
-          <button class="btn btn-danger" id="btnSair">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            Sair
-          </button>
         </div>
-      </aside>
-      <div id="overlay" class="overlay"></div>
-      <!-- ===========================
+        <button class="btn btn-danger" id="btnSair">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Sair
+        </button>
+      </div>
+    </aside>
+    <div id="overlay" class="overlay"></div>
+    <!-- ===========================
          CONTEÚDO
          ============================ -->
-      <main class="content">
-        <!-- ===========================
+    <main class="content">
+      <!-- ===========================
              HEADER
         ============================ -->
-        <header class="topbar">
-          <button id="btnMenu" class="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
+      <header class="topbar">
+        <button id="btnMenu" class="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="form-control" type="text" placeholder="Pesquisar pacientes, consultas..." />
+        </div>
+        <div class="actions">
+          <button>
+            <i class="fa-regular fa-bell"></i>
           </button>
-          <div class="search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input
-              class="form-control"
-              type="text"
-              placeholder="Pesquisar pacientes, consultas..."
-            />
-          </div>
-          <div class="actions">
-            <button>
-              <i class="fa-regular fa-bell"></i>
-            </button>
-            <button>
-              <i class="fa-regular fa-envelope"></i>
-            </button>
-            <button>
-              <i class="fa-solid fa-gear"></i>
-            </button>
-          </div>
-        </header>
-        <!-- ===========================
+          <button>
+            <i class="fa-regular fa-envelope"></i>
+          </button>
+          <button>
+            <i class="fa-solid fa-gear"></i>
+          </button>
+        </div>
+      </header>
+      <!-- ===========================
              BREADCRUMB
         ============================ -->
-        <div class="breadcrumb p-3">
-          <span>Início</span>
-          <i class="fa-solid fa-angle-right"></i>
-          <span>Dashboard</span>
-        </div>
-        <!-- ===========================
+      <div class="breadcrumb p-3">
+        <span>Início</span>
+        <i class="fa-solid fa-angle-right"></i>
+        <span>Dashboard</span>
+      </div>
+      <!-- ===========================
              TÍTULO
         ============================ -->
-        <section class="page-title">
-          <div>
-            <h1>Dashboard</h1>
-            <p>Bem-vindo novamente ao ClinicFlow.</p>
-          </div>
-          <button class="btn btn-primary" id="btnNovoAgendamento">
-            <i class="fa-solid fa-calendar-plus"></i>
-            Novo Agendamento
-          </button>
-        </section>
-        <!-- ===========================
+      <section class="page-title">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Bem-vindo novamente ao ClinicFlow.</p>
+        </div>
+        <button class="btn btn-primary" id="btnNovoAgendamento">
+          <i class="fa-solid fa-calendar-plus"></i>
+          Novo Agendamento
+        </button>
+      </section>
+      <!-- ===========================
              CARDS
         ============================ -->
-        <section class="cards">
-          <div class="stats-card hover-lift">
-            <div class="stats-info">
-              <span>Total de Pacientes</span>
-              <h2>248</h2>
-            </div>
-            <div class="stats-icon">
-              <i class="fa-solid fa-users"></i>
-            </div>
+      <section class="cards">
+        <div class="stats-card hover-lift">
+          <div class="stats-info">
+            <span>Total de Pacientes</span>
+            <h2>248</h2>
           </div>
-          <div class="stats-card hover-lift">
-            <div class="stats-info">
-              <span>Consultas Hoje</span>
-              <h2>18</h2>
-            </div>
-            <div class="stats-icon">
-              <i class="fa-solid fa-calendar-check"></i>
-            </div>
+          <div class="stats-icon">
+            <i class="fa-solid fa-users"></i>
           </div>
-          <div class="stats-card hover-lift">
-            <div class="stats-info">
-              <span>Receita do Dia</span>
-              <h2>R$ 2.430,00</h2>
-            </div>
-            <div class="stats-icon">
-              <i class="fa-solid fa-sack-dollar"></i>
-            </div>
+        </div>
+        <div class="stats-card hover-lift">
+          <div class="stats-info">
+            <span>Consultas Hoje</span>
+            <h2>18</h2>
           </div>
-          <div class="stats-card hover-lift">
-            <div class="stats-info">
-              <span>Profissionais</span>
-              <h2>6</h2>
-            </div>
-            <div class="stats-icon">
-              <i class="fa-solid fa-user-doctor"></i>
-            </div>
+          <div class="stats-icon">
+            <i class="fa-solid fa-calendar-check"></i>
           </div>
-        </section>
-        <!-- ======================================================
+        </div>
+        <div class="stats-card hover-lift">
+          <div class="stats-info">
+            <span>Receita do Dia</span>
+            <h2>R$ 2.430,00</h2>
+          </div>
+          <div class="stats-icon">
+            <i class="fa-solid fa-sack-dollar"></i>
+          </div>
+        </div>
+        <div class="stats-card hover-lift">
+          <div class="stats-info">
+            <span>Profissionais</span>
+            <h2>6</h2>
+          </div>
+          <div class="stats-icon">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+        </div>
+      </section>
+      <!-- ======================================================
              DASHBOARD GRID
         ======================================================= -->
-        <section class="dashboard-grid">
-          <!-- ======================================================
+      <section class="dashboard-grid">
+        <!-- ======================================================
                  AGENDA DO DIA
             ======================================================= -->
-          <div class="panel fade-in">
-            <div class="panel-header">
-              <div class="d-flex justify-between align-center">
-                <h3>Agenda de Hoje</h3>
-                <button class="btn btn-primary btn-sm">
-                  <i class="fa-solid fa-plus"></i>
-                  Agendar
-                </button>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="table-responsive" id="listaAgendamentos">
-                <table class="table" id="tabelaPacientes">
-                  <thead>
-                    <tr>
-                      <th>Horário</th>
-                      <th>Paciente</th>
-                      <th>Profissional</th>
-                      <th>Procedimento</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>08:00</td>
-                      <td>Maria Oliveira</td>
-                      <td>Dra. Amanda</td>
-                      <td>Consulta</td>
-                      <td>
-                        <span class="status status-confirmado">
-                          Confirmado
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>09:00</td>
-                      <td>João Pedro</td>
-                      <td>Dr. Lucas</td>
-                      <td>Retorno</td>
-                      <td>
-                        <span class="status status-andamento">
-                          Em atendimento
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>10:30</td>
-                      <td>Ana Clara</td>
-                      <td>Dra. Fernanda</td>
-                      <td>Procedimento</td>
-                      <td>
-                        <span class="status status-agendado"> Agendado </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>13:00</td>
-                      <td>Carlos Henrique</td>
-                      <td>Dr. Pedro</td>
-                      <td>Avaliação</td>
-                      <td>
-                        <span class="status status-confirmado">
-                          Confirmado
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>14:30</td>
-                      <td>Juliana Costa</td>
-                      <td>Dra. Amanda</td>
-                      <td>Consulta</td>
-                      <td>
-                        <span class="status status-agendado"> Agendado </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>16:00</td>
-                      <td>Fernando Silva</td>
-                      <td>Dr. Lucas</td>
-                      <td>Retorno</td>
-                      <td>
-                        <span class="status status-finalizado">
-                          Finalizado
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <!-- ======================================================
-                 COLUNA DIREITA
-            ======================================================= -->
-          <div class="flex flex-column gap-3">
-            <!-- Próximos Atendimentos -->
-            <div class="panel fade-in">
-              <div class="panel-header">
-                <h3>Próximos Atendimentos</h3>
-              </div>
-              <div>
-                <div class="appointment">
-                  <strong>15:00</strong>
-                  <span>Ana Paula Martins</span>
-                  <small>Consulta de Rotina</small>
-                </div>
-                <div class="appointment">
-                  <strong>15:30</strong>
-                  <span>José Henrique</span>
-                  <small>Retorno</small>
-                </div>
-                <div class="appointment">
-                  <strong>16:00</strong>
-                  <span>Fernanda Lima</span>
-                  <small>Procedimento</small>
-                </div>
-                <div class="appointment">
-                  <strong>16:40</strong>
-                  <span>Marcos Oliveira</span>
-                  <small>Avaliação</small>
-                </div>
-                <div class="appointment">
-                  <strong>17:20</strong>
-                  <span>Juliana Souza</span>
-                  <small>Consulta</small>
-                </div>
-              </div>
-            </div>
-            <!-- Resumo do Dia -->
-            <div class="panel fade-in">
-              <div class="panel-header">
-                <h3>Resumo do Dia</h3>
-              </div>
-              <div class="panel-body">
-                <div class="list">
-                  <div class="list-item">
-                    <span>Consultas</span>
-                    <strong>18</strong>
-                  </div>
-                  <div class="list-item">
-                    <span>Confirmadas</span>
-                    <strong>15</strong>
-                  </div>
-                  <div class="list-item">
-                    <span>Canceladas</span>
-                    <strong>2</strong>
-                  </div>
-                  <div class="list-item">
-                    <span>Em atendimento</span>
-                    <strong>1</strong>
-                  </div>
-                  <div class="list-item">
-                    <span>Receita Prevista</span>
-                    <strong>R$ 4.820,00</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- ======================================================
-             SEGUNDA LINHA DO DASHBOARD
-        ======================================================= -->
-        <section class="dashboard-row p-3">
-          <!-- ==========================================
-                 FATURAMENTO
-            =========================================== -->
-          <div class="panel fade-in">
-            <div class="panel-header">
-              <div class="d-flex justify-between align-center">
-                <h3>Faturamento da Semana</h3>
-                <span class="badge badge-success"> +12% </span>
-              </div>
-            </div>
-            <div class="panel-body">
-              <div class="chart-placeholder">
-                <i class="fa-solid fa-chart-line"></i>
-                <h3>Gráfico Financeiro</h3>
-                <p>O gráfico será integrado futuramente utilizando Chart.js.</p>
-              </div>
-            </div>
-          </div>
-          <!-- ==========================================
-                 ATIVIDADES RECENTES
-            =========================================== -->
-          <div class="panel fade-in">
-            <div class="panel-header">
-              <h3>Atividades Recentes</h3>
-            </div>
-            <div>
-              <div class="list-item">
-                <div>
-                  <strong>Paciente cadastrado</strong>
-                  <p>Maria Oliveira</p>
-                </div>
-                <small>09:12</small>
-              </div>
-              <div class="list-item">
-                <div>
-                  <strong>Consulta finalizada</strong>
-                  <p>João Pedro</p>
-                </div>
-                <small>10:30</small>
-              </div>
-              <div class="list-item">
-                <div>
-                  <strong>Pagamento recebido</strong>
-                  <p>R$ 350,00</p>
-                </div>
-                <small>11:08</small>
-              </div>
-              <div class="list-item">
-                <div>
-                  <strong>Novo Agendamento</strong>
-                  <p>Fernanda Lima</p>
-                </div>
-                <small>13:20</small>
-              </div>
-              <div class="list-item">
-                <div>
-                  <strong>Cadastro atualizado</strong>
-                  <p>Carlos Henrique</p>
-                </div>
-                <small>14:15</small>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- ======================================================
-             AÇÕES RÁPIDAS
-        ======================================================= -->
-        <section class="cards">
-          <div class="card hover-lift">
-            <div class="card-header">
-              <h3 class="card-title">Novo Paciente</h3>
-            </div>
-            <div class="panel-body">
-              <p>Cadastre rapidamente um novo paciente.</p>
-              <br />
-              <button class="btn btn-primary">
-                <i class="fa-solid fa-user-plus"></i>
-                Cadastrar
-              </button>
-            </div>
-          </div>
-          <div class="card hover-lift">
-            <div class="card-header">
-              <h3 class="card-title">Nova Consulta</h3>
-            </div>
-            <div class="panel-body">
-              <p>Agende uma nova consulta.</p>
-              <br />
-              <button class="btn btn-success">
-                <i class="fa-solid fa-calendar-plus"></i>
+        <div class="panel fade-in">
+          <div class="panel-header">
+            <div class="d-flex justify-between align-center">
+              <h3>Agenda de Hoje</h3>
+              <button class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-plus"></i>
                 Agendar
               </button>
             </div>
           </div>
-          <div class="card hover-lift">
-            <div class="card-header">
-              <h3 class="card-title">Financeiro</h3>
-            </div>
-            <div class="panel-body">
-              <p>Visualizar receitas e despesas.</p>
-              <br />
-              <button class="btn btn-warning">
-                <i class="fa-solid fa-wallet"></i>
-                Abrir
-              </button>
-            </div>
-          </div>
-          <div class="card hover-lift">
-            <div class="card-header">
-              <h3 class="card-title">Relatórios</h3>
-            </div>
-            <div class="panel-body">
-              <p>Emitir relatórios gerenciais.</p>
-              <br />
-              <button class="btn btn-secondary">
-                <i class="fa-solid fa-chart-column"></i>
-                Visualizar
-              </button>
-            </div>
-          </div>
-        </section>
-        <!-- ======================================================
-             RODAPÉ
-        ======================================================= -->
-        <footer>
-          <p>
-            ClinicFlow © 2026
-            <strong>Versão 1.0.0</strong>
-          </p>
-        </footer>
-        <!-- ==================================================
-             MODAL NOVO AGENDAMENTO
-             ================================================== -->
-        <div class="modal-overlay" id="modalAgendamento">
-          <div class="modal">
-            <div class="modal-header">
-              <h3>Novo Agendamento</h3>
-              <button class="btn btn-danger btn-sm" id="fecharModalAgendamento">
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="grid-2">
-                <div class="form-group">
-                  <label> Paciente </label>
-                  <select class="form-control" id="pacienteAgendamento">
-                    <option value="">Selecione o paciente</option>
-                    <option>Maria Oliveira</option>
-                    <option>João Pedro Santos</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label> Profissional </label>
-                  <select class="form-control" id="profissionalAgendamento">
-                    <option>Dr. Carlos</option>
-                    <option>Dra. Ana</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label> Data </label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="dataAgendamento"
-                  />
-                </div>
-                <div class="form-group">
-                  <label> Horário </label>
-                  <input
-                    type="time"
-                    class="form-control"
-                    id="horarioAgendamento"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label> Observações </label>
-                <textarea
-                  class="form-control"
-                  id="observacaoAgendamento"
-                  placeholder="Informações adicionais"
-                ></textarea>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" id="cancelarAgendamento">
-                Cancelar
-              </button>
-              <button class="btn btn-primary" id="salvarAgendamento">
-                <i class="fa-solid fa-save"></i>
-                Salvar Agendamento
-              </button>
+          <div class="panel-body">
+            <div class="table-responsive" id="listaAgendamentos">
+              <table class="table" id="tabelaPacientes">
+                <thead>
+                  <tr>
+                    <th>Horário</th>
+                    <th>Paciente</th>
+                    <th>Profissional</th>
+                    <th>Procedimento</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>08:00</td>
+                    <td>Maria Oliveira</td>
+                    <td>Dra. Amanda</td>
+                    <td>Consulta</td>
+                    <td>
+                      <span class="status status-confirmado">
+                        Confirmado
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>09:00</td>
+                    <td>João Pedro</td>
+                    <td>Dr. Lucas</td>
+                    <td>Retorno</td>
+                    <td>
+                      <span class="status status-andamento">
+                        Em atendimento
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>10:30</td>
+                    <td>Ana Clara</td>
+                    <td>Dra. Fernanda</td>
+                    <td>Procedimento</td>
+                    <td>
+                      <span class="status status-agendado"> Agendado </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>13:00</td>
+                    <td>Carlos Henrique</td>
+                    <td>Dr. Pedro</td>
+                    <td>Avaliação</td>
+                    <td>
+                      <span class="status status-confirmado">
+                        Confirmado
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>14:30</td>
+                    <td>Juliana Costa</td>
+                    <td>Dra. Amanda</td>
+                    <td>Consulta</td>
+                    <td>
+                      <span class="status status-agendado"> Agendado </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>16:00</td>
+                    <td>Fernando Silva</td>
+                    <td>Dr. Lucas</td>
+                    <td>Retorno</td>
+                    <td>
+                      <span class="status status-finalizado">
+                        Finalizado
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-      </main>
-    </div>
-    <script src="../assets/js/utils.js"></script>
-    <script src="../assets/js/storage.js"></script>
-    <script src="../assets/js/auth.js"></script>
-    <script src="../assets/js/modal.js"></script>
-    <script src="../assets/js/table.js"></script>
-    <script src="../assets/js/cards.js"></script>
-    <script src="../assets/js/dashboard.js"></script>
-  </body>
+        <!-- ======================================================
+                 COLUNA DIREITA
+            ======================================================= -->
+        <div class="flex flex-column gap-3">
+          <!-- Próximos Atendimentos -->
+          <div class="panel fade-in">
+            <div class="panel-header">
+              <h3>Próximos Atendimentos</h3>
+            </div>
+            <div>
+              <div class="appointment">
+                <strong>15:00</strong>
+                <span>Ana Paula Martins</span>
+                <small>Consulta de Rotina</small>
+              </div>
+              <div class="appointment">
+                <strong>15:30</strong>
+                <span>José Henrique</span>
+                <small>Retorno</small>
+              </div>
+              <div class="appointment">
+                <strong>16:00</strong>
+                <span>Fernanda Lima</span>
+                <small>Procedimento</small>
+              </div>
+              <div class="appointment">
+                <strong>16:40</strong>
+                <span>Marcos Oliveira</span>
+                <small>Avaliação</small>
+              </div>
+              <div class="appointment">
+                <strong>17:20</strong>
+                <span>Juliana Souza</span>
+                <small>Consulta</small>
+              </div>
+            </div>
+          </div>
+          <!-- Resumo do Dia -->
+          <div class="panel fade-in">
+            <div class="panel-header">
+              <h3>Resumo do Dia</h3>
+            </div>
+            <div class="panel-body">
+              <div class="list">
+                <div class="list-item">
+                  <span>Consultas</span>
+                  <strong>18</strong>
+                </div>
+                <div class="list-item">
+                  <span>Confirmadas</span>
+                  <strong>15</strong>
+                </div>
+                <div class="list-item">
+                  <span>Canceladas</span>
+                  <strong>2</strong>
+                </div>
+                <div class="list-item">
+                  <span>Em atendimento</span>
+                  <strong>1</strong>
+                </div>
+                <div class="list-item">
+                  <span>Receita Prevista</span>
+                  <strong>R$ 4.820,00</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======================================================
+             SEGUNDA LINHA DO DASHBOARD
+        ======================================================= -->
+      <section class="dashboard-row p-3">
+        <!-- ==========================================
+                 FATURAMENTO
+            =========================================== -->
+        <div class="panel fade-in">
+          <div class="panel-header">
+            <div class="d-flex justify-between align-center">
+              <h3>Faturamento da Semana</h3>
+              <span class="badge badge-success"> +12% </span>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="chart-placeholder">
+              <i class="fa-solid fa-chart-line"></i>
+              <h3>Gráfico Financeiro</h3>
+              <p>O gráfico será integrado futuramente utilizando Chart.js.</p>
+            </div>
+          </div>
+        </div>
+        <!-- ==========================================
+                 ATIVIDADES RECENTES
+            =========================================== -->
+        <div class="panel fade-in">
+          <div class="panel-header">
+            <h3>Atividades Recentes</h3>
+          </div>
+          <div>
+            <div class="list-item">
+              <div>
+                <strong>Paciente cadastrado</strong>
+                <p>Maria Oliveira</p>
+              </div>
+              <small>09:12</small>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>Consulta finalizada</strong>
+                <p>João Pedro</p>
+              </div>
+              <small>10:30</small>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>Pagamento recebido</strong>
+                <p>R$ 350,00</p>
+              </div>
+              <small>11:08</small>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>Novo Agendamento</strong>
+                <p>Fernanda Lima</p>
+              </div>
+              <small>13:20</small>
+            </div>
+            <div class="list-item">
+              <div>
+                <strong>Cadastro atualizado</strong>
+                <p>Carlos Henrique</p>
+              </div>
+              <small>14:15</small>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ======================================================
+             AÇÕES RÁPIDAS
+        ======================================================= -->
+      <section class="cards">
+        <div class="card hover-lift">
+          <div class="card-header">
+            <h3 class="card-title">Novo Paciente</h3>
+          </div>
+          <div class="panel-body">
+            <p>Cadastre rapidamente um novo paciente.</p>
+            <br />
+            <button class="btn btn-primary">
+              <i class="fa-solid fa-user-plus"></i>
+              Cadastrar
+            </button>
+          </div>
+        </div>
+        <div class="card hover-lift">
+          <div class="card-header">
+            <h3 class="card-title">Nova Consulta</h3>
+          </div>
+          <div class="panel-body">
+            <p>Agende uma nova consulta.</p>
+            <br />
+            <button class="btn btn-success">
+              <i class="fa-solid fa-calendar-plus"></i>
+              Agendar
+            </button>
+          </div>
+        </div>
+        <div class="card hover-lift">
+          <div class="card-header">
+            <h3 class="card-title">Financeiro</h3>
+          </div>
+          <div class="panel-body">
+            <p>Visualizar receitas e despesas.</p>
+            <br />
+            <button class="btn btn-warning">
+              <i class="fa-solid fa-wallet"></i>
+              Abrir
+            </button>
+          </div>
+        </div>
+        <div class="card hover-lift">
+          <div class="card-header">
+            <h3 class="card-title">Relatórios</h3>
+          </div>
+          <div class="panel-body">
+            <p>Emitir relatórios gerenciais.</p>
+            <br />
+            <button class="btn btn-secondary">
+              <i class="fa-solid fa-chart-column"></i>
+              Visualizar
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- ======================================================
+             RODAPÉ
+        ======================================================= -->
+      <footer>
+        <p>
+          ClinicFlow © 2026
+          <strong>Versão 1.0.0</strong>
+        </p>
+      </footer>
+      <!-- ==================================================
+             MODAL NOVO AGENDAMENTO
+             ================================================== -->
+      <div class="modal-overlay" id="modalAgendamento">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Novo Agendamento</h3>
+            <button class="btn btn-danger btn-sm" id="fecharModalAgendamento">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="grid-2">
+              <div class="form-group">
+                <label> Paciente </label>
+                <select class="form-control" id="pacienteAgendamento">
+                  <option value="">Selecione o paciente</option>
+                  <option>Maria Oliveira</option>
+                  <option>João Pedro Santos</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label> Profissional </label>
+                <select class="form-control" id="profissionalAgendamento">
+                  <option>Dr. Carlos</option>
+                  <option>Dra. Ana</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label> Data </label>
+                <input type="date" class="form-control" id="dataAgendamento" />
+              </div>
+              <div class="form-group">
+                <label> Horário </label>
+                <input type="time" class="form-control" id="horarioAgendamento" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label> Observações </label>
+              <textarea class="form-control" id="observacaoAgendamento" placeholder="Informações adicionais"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" id="cancelarAgendamento">
+              Cancelar
+            </button>
+            <button class="btn btn-primary" id="salvarAgendamento">
+              <i class="fa-solid fa-save"></i>
+              Salvar Agendamento
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../assets/js/core/utils.js"></script>
+  <script src="../assets/js/core/storage.js"></script>
+  <script src="../assets/js/core/auth.js"></script>
+  <script src="../assets/js/core/modal.js"></script>
+  <script src="../assets/js/core/table.js"></script>
+  <script src="../assets/js/core/cards.js"></script>
+  <script src="../assets/js/pages/dashboard.js"></script>
+</body>
+
 </html>

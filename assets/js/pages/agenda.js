@@ -233,13 +233,12 @@ onchange="alterarStatus(${agendamento.id}, this.value)">
             <div class="agenda-card-procedimento">
                 ${agendamento.procedimento}
             </div>
-            ${
-              agendamento.observacao
-                ? `<div class="agenda-card-observacao">
+            ${agendamento.observacao
+      ? `<div class="agenda-card-observacao">
                     ${agendamento.observacao}
                 </div>`
-                : ""
-            }
+      : ""
+    }
             <div class="agenda-card-footer">
                 <div class="agenda-card-horario">
                     <i class="fa-solid fa-clock"></i>
@@ -563,6 +562,17 @@ function sincronizarDashboard() {
     }),
   );
 }
+/* ==========================================================
+AÇÕES
+========================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const btnSair = document.querySelector("#btnSair");
+  if (btnSair) {
+    btnSair.addEventListener("click", () => {
+      Auth.logout();
+    });
+  }
+});
 /* ==========================================================
    ATUALIZAÇÕES AUTOMÁTICAS
 ========================================================== */

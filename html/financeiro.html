@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Financeiro | ClinicFlow
+    </title>
+    <!--Icone da pagina-->
+    <link rel="icon" type="image/png" href="../assets/images/Icone2.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/core/reset.css">
+    <link rel="stylesheet" href="../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../assets/css/core/global.css">
+    <link rel="stylesheet" href="../assets/css/pages/financeiro.css">
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="layout">
+        <!--====================================
+                SIDEBAR
+    =====================================-->
+        <aside class="sidebar" id="sidebar">
+            <div>
+                <div class="logo">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>
+                        ClinicFlow
+                    </span>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="dashboard.html">
+                                <i class="fa-solid fa-house"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pacientes.html">
+                                <i class="fa-solid fa-users"></i>
+                                Pacientes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="agenda.html">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                Agenda
+                            </a>
+                        </li>
+                        <li>
+                            <a href="profissionais.html">
+                                <i class="fa-solid fa-user-doctor"></i>
+                                Profissionais
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicos.html">
+                                <i class="fa-solid fa-stethoscope"></i>
+                                Serviços
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="financeiro.html">
+                                <i class="fa-solid fa-wallet"></i>
+                                Financeiro
+                            </a>
+                        </li>
+                        <li>
+                            <a href="relatorios.html">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Relatórios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="configuracoes.html">
+                                <i class="fa-solid fa-gear"></i>
+                                Configurações
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user">
+                    <img src="https://i.pravatar.cc/80?img=12">
+                    <div>
+                        <strong>
+                            Administrador
+                        </strong>
+                        <span>
+                            admin@clinicflow.com
+                        </span>
+                    </div>
+                </div>
+                <button class="btn btn-danger" id="btnSair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Sair
+                </button>
+            </div>
+        </aside>
+        <div id="overlay" class="overlay">
+        </div>
+    </div><!--====================================
+                CONTEÚDO
+    =====================================-->
+    <main class="content">
+        <!--==========================
+                TOPBAR
+        ===========================-->
+        <header class="topbar">
+            <button id="btnMenu" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="page-title-info">
+                <h1>
+                    Financeiro
+                </h1>
+                <p>
+                    Controle receitas, despesas e fluxo financeiro da clínica.
+                </p>
+            </div>
+            <div class="topbar-right">
+                <button class="btn btn-primary" id="btnNovoLancamento">
+                    <i class="fa-solid fa-plus"></i>
+                    Novo Lançamento
+                </button>
+            </div>
+        </header>
+        <!--====================================
+                DASHBOARD FINANCEIRO
+        =====================================-->
+        <section class="dashboard-card">
+            <div class="dashboard-card receita">
+                <div>
+                    <span>
+                        Receita do Mês
+                    </span>
+                    <h2 id="receitaMes">
+                        R$ 0,00
+                    </h2>
+                </div>
+                <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            </div>
+            <div class="dashboard-card despesa">
+                <div>
+                    <span>
+                        Despesas
+                    </span>
+                    <h2 id="despesaMes">
+                        R$ 0,00
+                    </h2>
+                </div>
+                <i class="fa-solid fa-money-bill-wave"></i>
+            </div>
+            <div class="dashboard-card lucro">
+                <div>
+                    <span>
+                        Saldo Atual
+                    </span>
+                    <h2 id="saldoAtual">
+                        R$ 0,00
+                    </h2>
+                </div>
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="dashboard-card receber">
+                <div>
+                    <span>
+                        Contas a Receber
+                    </span>
+                    <h2 id="contasReceber">
+                        R$ 0,00
+                    </h2>
+                </div>
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+            <div class="dashboard-card ticket">
+                <div>
+                    <span>
+                        Ticket Médio
+                    </span>
+                    <h2 id="ticketMedio">
+                        R$ 0,00
+                    </h2>
+                </div>
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+        </section>
+        <!--====================================
+                    FILTROS
+        =====================================-->
+        <section class="financeiro-filtros">
+            <div class="form-group">
+                <label>
+                    Pesquisar
+                </label>
+                <input type="text" id="pesquisaFinanceiro" class="form-control"
+                    placeholder="Paciente, serviço ou descrição">
+            </div>
+            <div class="form-group">
+                <label>
+                    Tipo
+                </label>
+                <select id="filtroTipo" class="form-control">
+                    <option value="todos">
+                        Todos
+                    </option>
+                    <option value="receita">
+                        Receita
+                    </option>
+                    <option value="despesa">
+                        Despesa
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    Status
+                </label>
+                <select id="filtroStatus" class="form-control">
+                    <option value="todos">
+                        Todos
+                    </option>
+                    <option value="pendente">
+                        Pendente
+                    </option>
+                    <option value="pago">
+                        Pago
+                    </option>
+                    <option value="cancelado">
+                        Cancelado
+                    </option>
+                    <option value="vencido">
+                        Vencido
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    Período
+                </label>
+                <input type="month" id="filtroPeriodo" class="form-control">
+            </div>
+        </section>
+        <!-- ==========================================
+     CONTEÚDO
+========================================== -->
+
+        <!-- ==========================================
+         LISTA DE LANÇAMENTOS
+    ========================================== -->
+        <section class="financeiro-lista">
+            <div id="listaFinanceiro" class="financeiro-grid">
+                <!-- Renderizado pelo financeiro.js -->
+            </div>
+        </section>
+        <!-- ==========================================================
+     MODAL NOVO LANÇAMENTO
+========================================================== -->
+        <div class="modal-overlay" id="modalLancamento">
+            <div class="modal modal-lg">
+                <div class="modal-header">
+                    <h2 id="tituloModalLancamento">
+                        Novo Lançamento
+                    </h2>
+                    <button class="btn btn-danger btn-sm" id="fecharModalLancamento">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Tipo *</label>
+                            <select id="tipoLancamento" class="form-control">
+                                <option value="receita">
+                                    Receita
+                                </option>
+                                <option value="despesa">
+                                    Despesa
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoria *</label>
+                            <select id="categoriaLancamento" class="form-control">
+                                <option value="">
+                                    Selecione
+                                </option>
+                                <option>Consulta</option>
+                                <option>Procedimento</option>
+                                <option>Exame</option>
+                                <option>Produto</option>
+                                <option>Salário</option>
+                                <option>Aluguel</option>
+                                <option>Marketing</option>
+                                <option>Impostos</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição *</label>
+                        <input id="descricaoLancamento" class="form-control" placeholder="Descrição do lançamento">
+                    </div>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label>Valor *</label>
+                            <input id="valorLancamento" type="number" step="0.01" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Data</label>
+                            <input id="dataLancamento" type="date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="statusLancamento" class="form-control">
+                                <option value="pendente">
+                                    Pendente
+                                </option>
+                                <option value="pago">
+                                    Pago
+                                </option>
+                                <option value="cancelado">
+                                    Cancelado
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Paciente</label>
+                        <select id="pacienteLancamento" class="form-control">
+                            <option value="">
+                                Nenhum
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Observações</label>
+                        <textarea id="observacaoLancamento" rows="4" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancelarLancamento">
+                        Cancelar
+                    </button>
+                    <button class="btn btn-primary" id="salvarLancamento">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- ==========================================================
+     MODAL VISUALIZAR
+========================================================== -->
+        <div class="modal-overlay" id="modalVisualizarLancamento">
+            <div class="modal modal-lg">
+                <div class="modal-header">
+                    <h2>
+                        <i class="fa-solid fa-eye"></i>
+                        Detalhes do Lançamento
+                    </h2>
+                    <button class="btn btn-danger btn-sm" id="fecharVisualizarLancamento">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="visualizar-financeiro">
+                        <div class="visualizar-topo">
+                            <div>
+                                <h2 id="viewDescricaoLancamento">
+                                    Consulta
+                                </h2>
+                                <span id="viewTipoLancamento" class="badge badge-primary">
+                                    Receita
+                                </span>
+                            </div>
+                            <div class="valor-view">
+                                <span id="viewValorLancamento">
+                                    R$ 0,00
+                                </span>
+                            </div>
+                        </div>
+                        <div class="visualizar-grid">
+                            <div class="info-card">
+                                <span>Categoria</span>
+                                <strong id="viewCategoria"></strong>
+                            </div>
+                            <div class="info-card">
+                                <span>Status</span>
+                                <strong id="viewStatus"></strong>
+                            </div>
+                            <div class="info-card">
+                                <span>Data</span>
+                                <strong id="viewData"></strong>
+                            </div>
+                            <div class="info-card">
+                                <span>Paciente</span>
+                                <strong id="viewPaciente"></strong>
+                            </div>
+                        </div>
+                        <div class="info-section">
+                            <h3>
+                                <i class="fa-solid fa-note-sticky"></i>
+                                Observações
+                            </h3>
+                            <p id="viewObservacao">
+                                Nenhuma observação.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="btnFecharVisualizarLancamento">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    </div>
+    <!-- Scripts -->
+    <script src="../assets/js/core/utils.js"></script>
+    <script src="../assets/js/core/storage.js"></script>
+    <script src="../assets/js/core/auth.js"></script>
+    <script src="../assets/js/core/modal.js"></script>
+    <script src="../assets/js/core/table.js"></script>
+    <script src="../assets/js/core/cards.js"></script>
+    <script src="../assets/js/pages/financeiro.js"></script>
+</body>
+
+</html>

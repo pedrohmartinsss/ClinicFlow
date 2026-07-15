@@ -1,0 +1,915 @@
+/* ==========================================================
+   FINANCEIRO.CSS
+   ClinicFlow
+========================================================== */
+/* ==========================================================
+   CONTEÚDO
+========================================================== */
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    padding-top: 20px;
+    gap: 24px;
+}
+
+/* ==========================================================
+   TÍTULO
+========================================================== */
+.page-title-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.page-title-info h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.page-title-info p {
+    color: var(--gray-500);
+    font-size: 15px;
+}
+
+/* ==========================================================
+   TOPO
+========================================================== */
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+.dashboard-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: .25s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.dashboard-card span {
+    display: block;
+    color: var(--gray-500);
+    margin-bottom: 8px;
+    font-size: .9rem;
+}
+
+.dashboard-card h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+.financeiro-lista {
+    display: block;
+}
+
+.financeiro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.financeiro-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .05);
+    transition: .25s;
+}
+
+.financeiro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+}
+
+.financeiro-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.financeiro-card-header h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.financeiro-valor {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.financeiro-valor.receita {
+    color: #16a34a;
+}
+
+.financeiro-valor.despesa {
+    color: #dc2626;
+}
+
+.financeiro-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.financeiro-card-body p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #475569;
+}
+
+.financeiro-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #edf2f7;
+    padding-top: 18px;
+}
+
+.financeiro-card-footer .acoes {
+    display: flex;
+    gap: 8px;
+}
+
+/* ==========================================================
+   INFORMAÇÕES
+========================================================== */
+.financeiro-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.financeiro-info span {
+    font-size: 14px;
+    color: var(--gray-500);
+}
+
+.financeiro-info strong {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+   VARIAÇÃO
+========================================================== */
+.financeiro-variacao {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.financeiro-variacao.positivo {
+    color: #16a34a;
+}
+
+.financeiro-variacao.negativo {
+    color: #dc2626;
+}
+
+/* ==========================================================
+   ÍCONE
+========================================================== */
+.financeiro-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.financeiro-icon.receita {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.financeiro-icon.despesa {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.financeiro-icon.lucro {
+    background: #DBEAFE;
+    color: #2563EB;
+}
+
+.financeiro-icon.pendente {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+/* ==========================================================
+   RESUMO
+========================================================== */
+.financeiro-resumo {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 22px;
+}
+
+/* ==========================================================
+   BOX
+========================================================== */
+.resumo-box {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+}
+
+.resumo-box h2 {
+    font-size: 18px;
+    margin-bottom: 22px;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+   GRID RESUMO
+========================================================== */
+.resumo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.resumo-item {
+    background: #F8FAFC;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.resumo-item span {
+    display: block;
+    color: var(--gray-500);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.resumo-item strong {
+    font-size: 26px;
+    color: var(--gray-900);
+    font-weight: 700;
+}
+
+/* ==========================================================
+   FILTROS
+========================================================== */
+.financeiro-filtros {
+    display: grid;
+    grid-template-columns:
+        220px 220px 220px 1fr auto;
+    gap: 18px;
+    padding: 24px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+    align-items: end;
+}
+
+.financeiro-filtros .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.financeiro-filtros label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+/* ==========================================================
+   PESQUISA
+========================================================== */
+.financeiro-filtros .flex-grow {
+    width: 100%;
+}
+
+/* ==========================================================
+   BOTÃO LIMPAR
+========================================================== */
+#btnLimparFiltros {
+    height: 46px;
+    white-space: nowrap;
+}
+
+/* ==========================================================
+   INDICADORES
+========================================================== */
+.financeiro-indicadores {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.indicador {
+    background: white;
+    border-radius: 14px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.indicador i {
+    font-size: 22px;
+    color: var(--primary);
+}
+
+.indicador strong {
+    display: block;
+    font-size: 20px;
+    color: var(--gray-900);
+}
+
+.indicador span {
+    color: var(--gray-500);
+    font-size: 13px;
+}
+
+/* ==========================================================
+   TÍTULOS DAS SEÇÕES
+========================================================== */
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    font-size: 22px;
+    color: var(--gray-900);
+}
+
+.section-title p {
+    color: var(--gray-500);
+    font-size: 14px;
+}
+
+/* ==========================================================
+   TABELA DE LANÇAMENTOS
+========================================================== */
+.financeiro-table-container {
+    background: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.financeiro-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.financeiro-table thead {
+    background: #f8fafc;
+}
+
+.financeiro-table thead th {
+    padding: 18px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-200);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.financeiro-table tbody td {
+    padding: 18px;
+    border-bottom: 1px solid var(--gray-100);
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.financeiro-table tbody tr {
+    transition: .25s;
+}
+
+.financeiro-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.financeiro-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==========================================================
+   COLUNAS
+========================================================== */
+.col-descricao {
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.col-categoria {
+    color: var(--gray-600);
+}
+
+.col-paciente {
+    color: var(--gray-700);
+}
+
+.col-data {
+    white-space: nowrap;
+    color: var(--gray-600);
+}
+
+.col-valor {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.valor-receita {
+    color: #16a34a;
+}
+
+.valor-despesa {
+    color: #dc2626;
+}
+
+/* ==========================================================
+   BADGES
+========================================================== */
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.badge-pago {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.badge-pendente {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.badge-atrasado {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.badge-cancelado {
+    background: #e5e7eb;
+    color: #4b5563;
+}
+
+/* ==========================================================
+   BADGES DE TIPO
+========================================================== */
+.badge-receita {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-despesa {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ==========================================================
+   BOTÕES DA TABELA
+========================================================== */
+.table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.table-actions .btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 10px;
+}
+
+.table-actions .btn i {
+    font-size: 14px;
+}
+
+/* ==========================================================
+   MODAIS
+========================================================== */
+.modal-xl {
+    width: min(1000px, 95vw);
+}
+
+.modal-financeiro-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modal-financeiro-body .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.modal-financeiro-body .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.modal-financeiro-body textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ==========================================================
+   RESUMO DO LANÇAMENTO
+========================================================== */
+.financeiro-resumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.financeiro-resumo-card {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid var(--gray-200);
+}
+
+.financeiro-resumo-card span {
+    display: block;
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-bottom: 8px;
+}
+
+.financeiro-resumo-card strong {
+    font-size: 22px;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+   INFORMAÇÕES DO MODAL
+========================================================== */
+.info-financeiro {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.info-financeiro .info-item {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 14px;
+}
+
+.info-item span {
+    display: block;
+    color: var(--gray-500);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.info-item strong {
+    font-size: 15px;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+   HISTÓRICO
+========================================================== */
+.financeiro-historico {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.financeiro-historico-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid var(--gray-200);
+}
+
+.financeiro-historico-item strong {
+    color: var(--gray-800);
+}
+
+.financeiro-historico-item span {
+    color: var(--gray-500);
+    font-size: 13px;
+}
+
+/* ==========================================================
+   MODAIS
+========================================================== */
+.modal-xl {
+    width: min(1100px, 96vw);
+    max-height: 92vh;
+    overflow: auto;
+}
+
+.financeiro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.financeiro-form .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.financeiro-form .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* ==========================================================
+   MODAL VISUALIZAÇÃO
+========================================================== */
+.visualizar-financeiro {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.visualizar-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.visualizar-topo h2 {
+    margin-bottom: 6px;
+}
+
+.visualizar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.info-card {
+    background: var(--gray-50);
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.info-card span {
+    display: block;
+    font-size: .82rem;
+    color: var(--gray-500);
+    margin-bottom: 8px;
+}
+
+.info-card strong {
+    font-size: 1rem;
+    color: var(--gray-900);
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: var(--gray-800);
+}
+
+/* ==========================================================
+   TABELA RESPONSIVA
+========================================================== */
+.financeiro-table {
+    overflow-x: auto;
+}
+
+.financeiro-table table {
+    min-width: 950px;
+}
+
+.financeiro-table::-webkit-scrollbar {
+    height: 8px;
+}
+
+.financeiro-table::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 50px;
+}
+
+.financeiro-table::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+========================================================== */
+@keyframes fadeFinanceiro {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.financeiro-card,
+.table-container,
+.resumo-card,
+.modal {
+    animation: fadeFinanceiro .25s ease;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+@media(max-width:1200px) {
+
+    .financeiro-resumo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+@media(max-width:992px) {
+
+    .financeiro-filtros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .financeiro-form .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .financeiro-form .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .visualizar-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .financeiro-resumo {
+        grid-template-columns: 1fr;
+    }
+
+    .financeiro-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+        gap: 15px;
+        height: auto;
+        padding: 20px;
+    }
+
+    #btnNovaMovimentacao {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .modal-xl {
+        width: 96%;
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .visualizar-topo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+
+}
+
+/* ==========================================================
+   ESTADOS
+========================================================== */
+.hidden {
+    display: none !important;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    color: var(--gray-500);
+}
+
+.sem-registros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+    border: 2px dashed var(--gray-300);
+    border-radius: 14px;
+    color: var(--gray-500);
+    font-style: italic;
+}
+
+/* ==========================================================
+   IMPRESSÃO
+========================================================== */
+@media print {
+
+    .sidebar,
+    .topbar,
+    .financeiro-filtros,
+    .modal-overlay {
+        display: none !important;
+    }
+
+    .content {
+        padding: 0;
+        margin: 0;
+    }
+
+    .table-container {
+        box-shadow: none;
+        border: none;
+    }
+
+}
