@@ -1,0 +1,710 @@
+/* ==========================================================
+                    DASHBOARD
+========================================================== */
+.usuarios-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.usuarios-dashboard .dashboard-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    transition: .25s;
+}
+
+.usuarios-dashboard .dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.usuarios-dashboard .dashboard-card span {
+    display: block;
+    color: var(--gray-500);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.usuarios-dashboard .dashboard-card h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.usuarios-dashboard .dashboard-card i {
+    font-size: 38px;
+    color: var(--primary);
+}
+
+/* ==========================================================
+                    FILTROS
+========================================================== */
+.usuarios-filtros {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* ==========================================================
+                    GRID
+========================================================== */
+.usuarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 24px;
+}
+
+/* ==========================================================
+                CARD DO USUÁRIO
+========================================================== */
+.usuario-card {
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+    transition: .25s;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.usuario-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================
+                CABEÇALHO
+========================================================== */
+.usuario-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    overflow: visible;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.usuario-avatar {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    min-height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    flex-shrink: 0;
+}
+
+.usuario-info {
+    flex: 1;
+}
+
+.usuario-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+}
+
+.usuario-info p {
+    color: var(--gray-500);
+    font-size: 14px;
+}
+
+/* ==========================================================
+                STATUS
+========================================================== */
+.usuario-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.usuario-status.ativo {
+    background: rgba(22, 163, 74, .12);
+    color: #16a34a;
+}
+
+.usuario-status.bloqueado {
+    background: rgba(220, 38, 38, .12);
+    color: #dc2626;
+}
+
+/* ==========================================================
+                INFORMAÇÕES
+========================================================== */
+.usuario-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.usuario-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.usuario-item i {
+    width: 20px;
+    color: var(--primary);
+}
+
+.usuario-item span {
+    color: var(--gray-700);
+    font-size: 14px;
+}
+
+.usuario-item strong {
+    margin-left: auto;
+    color: var(--gray-900);
+}
+
+/* ==========================================================
+                RODAPÉ
+========================================================== */
+.usuario-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 18px 20px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.usuario-footer .btn {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==========================================================
+                MODAL CADASTRO
+========================================================== */
+#modalUsuario .modal {
+    width: 100%;
+    max-width: 1100px;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+#modalUsuario .modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 30px;
+}
+
+.usuario-foto-area {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.usuario-foto-preview {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary);
+    background: var(--gray-100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.usuario-foto-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.usuario-foto-area input[type=file] {
+    margin-bottom: 10px;
+}
+
+.usuario-foto-area small {
+    color: var(--gray-500);
+    font-size: 13px;
+}
+
+/* ==========================================================
+                SEÇÕES DO FORMULÁRIO
+========================================================== */
+#modalUsuario .config-card {
+    margin-bottom: 16px;
+}
+
+#modalUsuario .config-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--gray-900);
+    font-weight: 600;
+}
+
+/* ==========================================================
+                    GRID
+========================================================== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+/* ==========================================================
+                SWITCH
+========================================================== */
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 15px;
+    color: var(--gray-700);
+}
+
+.switch input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+}
+
+/* =========================================================
+            MODAL VISUALIZAR
+========================================================== */
+#modalVisualizarUsuario .modal {
+    max-width: 900px;
+}
+
+.usuario-view-topo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.usuario-view-topo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+}
+
+.usuario-view-topo h2 {
+    font-size: 30px;
+    color: var(--gray-900);
+    margin-bottom: 10px;
+}
+
+.usuario-view-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+/* ==========================================================
+                INFO CARD
+========================================================== */
+.info-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: .25s;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.info-card span {
+    color: var(--gray-500);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.info-card strong {
+    color: var(--gray-900);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* ==========================================================
+                BADGES
+========================================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.badge-primary {
+    background: rgba(37, 99, 235, .12);
+    color: var(--primary);
+}
+
+.badge-success {
+    background: rgba(22, 163, 74, .12);
+    color: #16a34a;
+}
+
+.badge-danger {
+    background: rgba(220, 38, 38, .12);
+    color: #dc2626;
+}
+
+/* ==========================================================
+                MODAL FOOTER
+========================================================== */
+.modal-footer {
+    position: sticky;
+    padding: 20px 24px;
+    border-top: 1px solid #ECECEC;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background: #fff;
+    flex-shrink: 0;
+    bottom: 0;
+    z-index: 5;
+}
+
+.modal-footer .btn {
+    min-width: 150px;
+}
+
+/* ==========================================================
+                MODAL PERMISSÕES
+========================================================== */
+#modalPermissoes .modal {
+    max-width: 1200px;
+}
+
+#modalPermissoes .modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* ==========================================================
+                GRID DOS MÓDULOS
+========================================================== */
+.permissoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+/* ==========================================================
+                CARD MÓDULO
+========================================================== */
+.permissao-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.permissao-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.permissao-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    background: linear-gradient(135deg,
+            var(--primary),
+            color-mix(in srgb, var(--primary) 70%, white));
+    color: #fff;
+}
+
+.permissao-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.permissao-header h3 i {
+    font-size: 20px;
+}
+
+.permissao-header span {
+    background: rgba(255, 255, 255, .18);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+/* ==========================================================
+                BODY
+========================================================== */
+.permissao-body {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ==========================================================
+                CHECKBOX
+========================================================== */
+.permissao-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: .2s;
+}
+
+.permissao-item:hover {
+    background: var(--gray-50);
+}
+
+.permissao-item label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    color: var(--gray-800);
+}
+
+.permissao-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+/* ==========================================================
+                LINHA DIVISÓRIA
+========================================================== */
+.permissao-divider {
+    height: 1px;
+    background: var(--gray-200);
+}
+
+/* ==========================================================
+                AÇÕES
+========================================================== */
+.permissoes-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.permissoes-actions .btn {
+    min-width: 170px;
+}
+
+/* ==========================================================
+                RESUMO
+========================================================== */
+.permissoes-resumo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--gray-50);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.permissoes-resumo i {
+    font-size: 34px;
+    color: var(--primary);
+}
+
+.permissoes-resumo h4 {
+    font-size: 18px;
+    color: var(--gray-900);
+}
+
+.permissoes-resumo p {
+    color: var(--gray-500);
+}
+
+/* ==========================================================
+                SCROLL
+========================================================== */
+#modalPermissoes .modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+#modalPermissoes .modal-body::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 999px;
+}
+
+/* ==========================================================
+                RESPONSIVO
+========================================================== */
+@media(max-width:1200px) {
+    .permissoes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+@media(max-width:900px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .usuarios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .permissoes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:600px) {
+    .usuario-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .usuario-footer {
+        flex-wrap: wrap;
+    }
+
+    .usuario-footer .btn {
+        width: 100%;
+    }
+
+    .usuarios-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .usuarios-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .usuario-view-topo {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ==========================================================
+                DARK MODE
+========================================================== */
+body.dark .usuario-card,
+body.dark .permissao-card,
+body.dark .info-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark .usuario-info h3,
+body.dark .info-card strong,
+body.dark .permissao-item label,
+body.dark .permissoes-resumo h4 {
+    color: #fff;
+}
+
+body.dark .usuario-item span,
+body.dark .info-card span,
+body.dark .permissoes-resumo p {
+    color: #cbd5e1;
+}
+
+body.dark .permissao-item:hover {
+    background: #273549;
+}
+
+body.dark .permissoes-resumo {
+    background: #273549;
+}
+
+body.dark .usuario-header {
+    border-color: #374151;
+}
+
+body.dark .usuario-footer {
+    border-color: #374151;
+}
+
+/* ==========================================================
+                ANIMAÇÕES
+========================================================== */
+.usuario-card,
+.permissao-card,
+.info-card {
+    animation: fadeUsuario .25s ease;
+}
+
+@keyframes fadeUsuario {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

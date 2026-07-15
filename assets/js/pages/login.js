@@ -13,22 +13,36 @@ document.addEventListener(
    USUÁRIO PADRÃO
 ========================================================== */
 function criarUsuarioInicial() {
-    const usuario =
-        Storage.buscar(
-            "clinicflow_usuario"
-        );
-    if (usuario)
+    const usuarios = Storage.buscar("clinicflow_usuarios") || [];
+    if (usuarios.length > 0) {
         return;
-    Storage.salvar(
-        "clinicflow_usuario",
-        {
-            id: Utils.gerarId(),
-            nome: "Administrador",
-            email: "admin@clinicflow.com",
-            senha: "123456",
-            perfil: "admin"
+    }
+
+    const usuarioPadrao = {
+        id: Utils.gerarId(),
+        nome: "Administrador",
+        email: "admin@clinicflow.com",
+        login: "admin",
+        senha: "123456",
+        perfil: "Administrador",
+        status: "ativo",
+        usuarioAtivo: true,
+        trocarSenhaPrimeiroLogin: false,
+        foto: "https://i.pravatar.cc/120?img=12",
+        permissoes: {
+            dashboard: true,
+            pacientes: true,
+            agenda: true,
+            profissionais: true,
+            servicos: true,
+            financeiro: true,
+            relatorios: true,
+            configuracoes: true,
+            usuarios: true
         }
-    );
+    };
+
+    Storage.salvar("clinicflow_usuarios", [usuarioPadrao]);
 }
 /* ==========================================================
    LOGIN
@@ -50,43 +64,51 @@ function iniciarLogin() {
 }
 
 function realizarLogin() {
-    const email =
+    const login =
         document.querySelector(
-            "#email"
-        ).value.trim();
+            "#login"
+        ).value.trim().toLowerCase();
     const senha =
         document.querySelector(
             "#password"
         ).value.trim();
-    const usuario =
+
+    const usuarios =
         Storage.buscar(
-            "clinicflow_usuario"
-        );
-    if (
-        email === usuario.email
-        &&
-        senha === usuario.senha
-    ) {
-        const sessao = {
-            usuarioId:
-                usuario.id,
-            nome:
-                usuario.nome,
-            perfil:
-                usuario.perfil,
-            autenticado: true,
-            login:
-                new Date()
-        };
+            "clinicflow_usuarios"
+        ) || [];
+
+    const usuario = usuarios.find((item) => {
+        const loginValido = (item.login || item.email || "")
+            .toString()
+            .trim()
+            .toLowerCase() === login;
+
+        return loginValido && item.senha === senha && item.status !== "bloqueado" && item.usuarioAtivo !== false;
+    });
+
+    if (usuario) {
         Auth.login(usuario);
         window.location.href =
             "html/dashboard.html";
+        return;
     }
-    else {
-        mostrarErroLogin(
-            "E-mail ou senha inválidos"
-        );
+
+    const usuarioLegacy = Storage.buscar("clinicflow_usuario");
+    if (
+        usuarioLegacy &&
+        ((usuarioLegacy.email || "").toLowerCase() === login || (usuarioLegacy.login || "").toLowerCase() === login) &&
+        usuarioLegacy.senha === senha
+    ) {
+        Auth.login(usuarioLegacy);
+        window.location.href =
+            "html/dashboard.html";
+        return;
     }
+
+    mostrarErroLogin(
+        "Login ou senha inválidos"
+    );
 }
 /* ==========================================================
    VERIFICAR SESSÃO

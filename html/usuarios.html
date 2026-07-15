@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços | ClinicFlow</title>
+    <title>
+        ClinicFlow | Usuários
+    </title>
     <!--Icone da pagina-->
     <link rel="icon" type="image/png" href="../assets/images/Icone2.png">
-    <!--CSS-->
+    <!-- CSS-->
+    <link rel="stylesheet" href="../assets/css/core/global.css">
     <link rel="stylesheet" href="../assets/css/core/reset.css">
     <link rel="stylesheet" href="../assets/css/core/variables.css">
-    <link rel="stylesheet" href="../assets/css/core/global.css">
     <link rel="stylesheet" href="../assets/css/pages/usuarios.css">
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,119 +20,447 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
-    <div class="layout">
-        <!--====================================
+    <!--====================================
                 SIDEBAR
     =====================================-->
-        <aside class="sidebar" id="sidebar">
-            <div>
-                <div class="logo">
-                    <i class="fa-solid fa-heart-pulse"></i>
-                    <span>ClinicFlow</span>
-                </div>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="dashboard.html">
-                                <i class="fa-solid fa-house"></i>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pacientes.html">
-                                <i class="fa-solid fa-users"></i>
-                                Pacientes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="agenda.html">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                Agenda
-                            </a>
-                        </li>
-                        <li>
-                            <a href="profissionais.html">
-                                <i class="fa-solid fa-user-doctor"></i>
-                                Profissionais
-                            </a>
-                        </li>
-                        <li>
-                            <a href="servicos.html">
-                                <i class="fa-solid fa-stethoscope"></i>
-                                Serviços
-                            </a>
-                        </li>
-                        <li>
-                            <a href="financeiro.html">
-                                <i class="fa-solid fa-wallet"></i>
-                                Financeiro
-                            </a>
-                        </li>
-                        <li>
-                            <a href="relatorios.html">
-                                <i class="fa-solid fa-chart-line"></i>
-                                Relatórios
-                            </a>
-                        </li>
-                        <li>
-                            <a href="configuracoes.html">
-                                <i class="fa-solid fa-gear"></i>
-                                Configurações
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a href="usuarios.html">
-                                <i class="fa-solid fa-user"></i>
-                                Usuários
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+    <aside class="sidebar" id="sidebar">
+        <div>
+            <div class="logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>ClinicFlow</span>
             </div>
-            <div class="sidebar-footer">
-                <div class="user">
-                    <img src="https://i.pravatar.cc/80?img=12">
-                    <div>
-                        <strong>Administrador</strong>
-                        <span>admin@clinicflow.com</span>
-                    </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fa-solid fa-house"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pacientes.html">
+                            <i class="fa-solid fa-users"></i>
+                            Pacientes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="agenda.html">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            Agenda
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profissionais.html">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            Profissionais
+                        </a>
+                    </li>
+                    <li>
+                        <a href="servicos.html">
+                            <i class="fa-solid fa-stethoscope"></i>
+                            Serviços
+                        </a>
+                    </li>
+                    <li>
+                        <a href="financeiro.html">
+                            <i class="fa-solid fa-wallet"></i>
+                            Financeiro
+                        </a>
+                    </li>
+                    <li>
+                        <a href="relatorios.html">
+                            <i class="fa-solid fa-chart-line"></i>
+                            Relatórios
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracoes.html">
+                            <i class="fa-solid fa-gear"></i>
+                            Configurações
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="usuarios.html">
+                            <i class="fa-solid fa-user"></i>
+                            Usuários
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user">
+                <img src="https://i.pravatar.cc/80?img=12">
+                <div>
+                    <strong>Administrador</strong>
+                    <span>admin@clinicflow.com</span>
                 </div>
-                <button class="btn btn-danger" id="btnSair">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    Sair
-                </button>
             </div>
-        </aside>
-        <div class="overlay" id="overlay"></div>
-        <!--====================================
+            <button class="btn btn-danger" id="btnSair">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sair
+            </button>
+        </div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+    <!--====================================
                 CONTEÚDO
     =====================================-->
-        <main class="content">
-            <!--==============================
-                TOPBAR
-        ==============================-->
-            <header class="topbar">
-                <button class="menu-toggle" id="btnMenu">
-                    <i class="fa-solid fa-bars"></i>
+    <main class="content">
+        <!--====================================
+                    TOPBAR
+        =====================================-->
+        <header class="topbar">
+            <button id="btnMenu" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="page-title-info">
+                <h1>
+                    Usuários
+                </h1>
+                <p>
+                    Gerencie os usuários que possuem acesso ao ClinicFlow.
+                </p>
+            </div>
+            <div class="topbar-right">
+                <button id="btnNovoUsuario" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                    Novo Usuário
                 </button>
-                <div class="page-title-info">
-                    <h1>Usuários</h1>
-                    <p>
-                        Gerencie todos os usuários da clínica.
-                    </p>
+            </div>
+        </header>
+        <!--====================================
+                    DASHBOARD
+        =====================================-->
+        <section class="usuarios-dashboard">
+            <div class="dashboard-card">
+                <div>
+                    <span>
+                        Total de Usuários
+                    </span>
+                    <h2 id="totalUsuarios">
+                        0
+                    </h2>
                 </div>
-                <div class="topbar-right">
-                    <button class="btn btn-primary" id="btnNovoUsuário">
-                        <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="dashboard-card success">
+                <div>
+                    <span>
+                        Usuários Ativos
+                    </span>
+                    <h2 id="usuariosAtivos">
+                        0
+                    </h2>
+                </div>
+                <i class="fa-solid fa-user-check"></i>
+            </div>
+            <div class="dashboard-card warning">
+                <div>
+                    <span>
+                        Bloqueados
+                    </span>
+                    <h2 id="usuariosBloqueados">
+                        0
+                    </h2>
+                </div>
+                <i class="fa-solid fa-user-lock"></i>
+            </div>
+            <div class="dashboard-card info">
+                <div>
+                    <span>
+                        Administradores
+                    </span>
+                    <h2 id="usuariosAdministradores">
+                        0
+                    </h2>
+                </div>
+                <i class="fa-solid fa-user-shield"></i>
+            </div>
+        </section>
+        <!--====================================
+                    FILTROS
+        =====================================-->
+        <section class="usuarios-filtros">
+            <div class="form-group">
+                <label>
+                    Pesquisar
+                </label>
+                <input id="pesquisaUsuarios" class="form-control" placeholder="Nome, e-mail ou login">
+            </div>
+            <div class="form-group">
+                <label>
+                    Perfil
+                </label>
+                <select id="filtroPerfil" class="form-control">
+                    <option value="todos">
+                        Todos
+                    </option>
+                    <option value="Administrador">
+                        Administrador
+                    </option>
+                    <option value="Gerente">
+                        Gerente
+                    </option>
+                    <option value="Recepcionista">
+                        Recepcionista
+                    </option>
+                    <option value="Profissional">
+                        Profissional
+                    </option>
+                    <option value="Financeiro">
+                        Financeiro
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    Status
+                </label>
+                <select id="filtroStatus" class="form-control">
+                    <option value="todos">
+                        Todos
+                    </option>
+                    <option value="ativo">
+                        Ativo
+                    </option>
+                    <option value="bloqueado">
+                        Bloqueado
+                    </option>
+                </select>
+            </div>
+        </section>
+        <!--====================================
+                LISTA DE USUÁRIOS
+        =====================================-->
+        <section class="usuarios-lista">
+            <div id="listaUsuarios" class="usuarios-grid">
+                <!-- Renderizado via usuarios.js -->
+            </div>
+        </section>
+        <!--====================================================
+            MODAL NOVO / EDITAR USUÁRIO
+=====================================================-->
+        <div class="modal-overlay" id="modalUsuario">
+            <div class="modal modal-xl">
+                <div class="modal-header">
+                    <h2 id="tituloModalUsuario">
                         Novo Usuário
+                    </h2>
+                    <button class="btn btn-danger btn-sm" id="fecharModalUsuario">
+                        <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-            </header>
-        </main>
-    </div>
+                <div class="modal-body">
+                    <!--====================================
+                    FOTO
+            =====================================-->
+                    <div class="usuario-foto-area">
+                        <div class="usuario-foto-preview">
+                            <img id="previewFotoUsuario" alt="Foto do usuário">
+                        </div>
+                        <div>
+                            <input type="file" id="fotoUsuario" accept="image/*">
+                            <small>
+                                PNG ou JPG até 5MB.
+                            </small>
+                        </div>
+                    </div>
+                    <!--====================================
+                DADOS PESSOAIS
+            =====================================-->
+                    <div class="config-card">
+                        <h3>
+                            Dados Pessoais
+                        </h3>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Nome Completo *
+                                </label>
+                                <input id="nomeUsuario" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    CPF
+                                </label>
+                                <input id="cpfUsuario" class="form-control">
+                            </div>
+                        </div>
+                        <div class="grid-3">
+                            <div class="form-group">
+                                <label>
+                                    Data de Nascimento
+                                </label>
+                                <input type="date" id="dataNascimentoUsuario" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Sexo
+                                </label>
+                                <select id="sexoUsuario" class="form-control">
+                                    <option value="">
+                                        Selecione
+                                    </option>
+                                    <option>
+                                        Masculino
+                                    </option>
+                                    <option>
+                                        Feminino
+                                    </option>
+                                    <option>
+                                        Outro
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Cargo
+                                </label>
+                                <input id="cargoUsuario" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <!--====================================
+                    CONTATO
+            =====================================-->
+                    <div class="config-card">
+                        <h3>
+                            Contato
+                        </h3>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    E-mail *
+                                </label>
+                                <input type="email" id="emailUsuario" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Telefone
+                                </label>
+                                <input id="telefoneUsuario" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <!--====================================
+                    ACESSO
+            =====================================-->
+                    <div class="config-card">
+                        <h3>
+                            Dados de Acesso
+                        </h3>
+                        <div class="grid-3">
+                            <div class="form-group">
+                                <label>
+                                    Login *
+                                </label>
+                                <input id="loginUsuario" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Senha *
+                                </label>
+                                <input type="password" id="senhaUsuario" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Confirmar Senha *
+                                </label>
+                                <input type="password" id="confirmarSenhaUsuario" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <!--====================================
+                    PERFIL
+            =====================================-->
+                    <div class="config-card">
+                        <h3>
+                            Perfil de Acesso
+                        </h3>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Perfil
+                                </label>
+                                <select id="perfilUsuario" class="form-control">
+                                    <option>
+                                        Administrador
+                                    </option>
+                                    <option>
+                                        Gerente
+                                    </option>
+                                    <option>
+                                        Recepcionista
+                                    </option>
+                                    <option>
+                                        Profissional
+                                    </option>
+                                    <option>
+                                        Financeiro
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Status
+                                </label>
+                                <select id="statusUsuario" class="form-control">
+                                    <option value="ativo">
+                                        Ativo
+                                    </option>
+                                    <option value="bloqueado">
+                                        Bloqueado
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--====================================
+                SEGURANÇA
+            =====================================-->
+                    <div class="config-card">
+                        <h3>
+                            Segurança
+                        </h3>
+                        <div class="grid-2">
+                            <label class="switch">
+                                <input type="checkbox" id="trocarSenhaPrimeiroLogin">
+                                <span></span>
+                                Forçar troca de senha no primeiro acesso
+                            </label>
+                            <label class="switch">
+                                <input type="checkbox" id="usuarioAtivo" checked>
+                                <span></span>
+                                Usuário ativo
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" id="cancelarUsuario">
+                        Cancelar
+                    </button>
+                    <button class="btn btn-primary" id="salvarUsuario">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Salvar Usuário
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--====================================================
+                    SCRIPTS
+    =====================================================-->
+    <script src="../assets/js/core/utils.js"></script>
+    <script src="../assets/js/core/storage.js"></script>
+    <script src="../assets/js/core/modal.js"></script>
+    <script src="../assets/js/core/sidebar.js"></script>
+    <script src="../assets/js/pages/usuarios.js"></script>
 </body>
 
 </html>
