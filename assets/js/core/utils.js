@@ -147,3 +147,73 @@ const Utils = {
         };
     }
 };
+/* ==========================================================
+   MENSAGENS (TOAST)
+========================================================== */
+function mostrarMensagem(mensagem, tipo = "success") {
+    // Remove toast anterior, se existir
+    document.querySelector(".toast-clinicflow")?.remove();
+    const toast = document.createElement("div");
+    toast.className = `toast-clinicflow toast-${tipo}`;
+    let icone = "fa-circle-info";
+    switch (tipo) {
+        case "success":
+            icone = "fa-circle-check";
+            break;
+        case "error":
+            icone = "fa-circle-xmark";
+            break;
+        case "warning":
+            icone = "fa-triangle-exclamation";
+            break;
+        case "info":
+            icone = "fa-circle-info";
+            break;
+    }
+    toast.innerHTML = `
+        <i class="fa-solid ${icone}"></i>
+        <span>${mensagem}</span>
+    `;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => {
+        toast.classList.add("show");
+    });
+    setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+}
+/* ==========================================================
+   APLICAR TEMA GLOBAL
+========================================================== */
+function aplicarTemaGlobal() {
+    const configuracoes = JSON.parse(
+        localStorage.getItem("configuracoes")
+    );
+    if (!configuracoes) return;
+    if (configuracoes.aparencia) {
+        document.documentElement.style.setProperty(
+            "--primary",
+            configuracoes.aparencia.corPrimaria || "#2563eb"
+        );
+
+        document.documentElement.style.setProperty(
+            "--secondary",
+            configuracoes.aparencia.corSecundaria || "#0f172a"
+        );
+
+        document.body.style.fontFamily =
+            configuracoes.aparencia.fonte || "Inter";
+        if (configuracoes.aparencia.tema === "escuro") {
+            document.body.classList.add("dark");
+        } else {
+            document.body.classList.remove("dark");
+        }
+    }
+}
+document.addEventListener(
+    "DOMContentLoaded",
+    aplicarTemaGlobal
+);

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Configurações | ClinicFlow
+    </title>
+    <!--Icone da pagina-->
+    <link rel="icon" type="image/png" href="../assets/images/Icone2.png">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/core/global.css">
+    <link rel="stylesheet" href="../assets/css/core/variables.css">
+    <link rel="stylesheet" href="../assets/css/core/reset.css">
+    <link rel="stylesheet" href="../assets/css/pages/configuracoes.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+</head>
+
+<body>
+    <!--=========================================
+        SIDEBAR
+    ==========================================-->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>ClinicFlow</span>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+            <a href="pacientes.html">
+                <i class="fa-solid fa-user-group"></i>
+                Pacientes
+            </a>
+            <a href="agenda.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Agenda
+            </a>
+            <a href="profissionais.html">
+                <i class="fa-solid fa-user-doctor"></i>
+                Profissionais
+            </a>
+            <a href="servicos.html">
+                <i class="fa-solid fa-stethoscope"></i>
+                Serviços
+            </a>
+            <a href="financeiro.html">
+                <i class="fa-solid fa-wallet"></i>
+                Financeiro
+            </a>
+            <a href="relatorios.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Relatórios
+            </a>
+            <a class="active" href="configuracoes.html">
+                <i class="fa-solid fa-gear"></i>
+                Configurações
+            </a>
+            <a href="usuarios.html">
+                <i class="fa-solid fa-user"></i>
+                Usuários
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user">
+                <img src="https://i.pravatar.cc/80?img=12">
+                <div>
+                    <strong>Administrador</strong>
+                    <span>admin@clinicflow.com</span>
+                </div>
+            </div>
+            <button class="btn btn-danger" id="btnSair">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sair
+            </button>
+        </div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+    </aside>
+    <!--=========================================
+        CONTEÚDO
+    ==========================================-->
+    <main class="content">
+        <!--=========================================
+            TOPBAR
+        ==========================================-->
+        <header class="topbar">
+            <button id="btnMenu" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="page-title-info">
+                <h1>
+                    Configurações
+                </h1>
+                <p>
+                    Personalize completamente o ClinicFlow.
+                </p>
+            </div>
+            <div class="topbar-right">
+                <button class="btn btn-success" id="btnSalvarConfiguracoes">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Salvar Alterações
+                </button>
+            </div>
+        </header>
+        <!--=========================================
+            PAINEL
+        ==========================================-->
+        <section class="configuracoes-container">
+            <!--=========================================
+                MENU LATERAL
+            ==========================================-->
+            <aside class="config-menu">
+                <button class="config-tab active" data-tab="clinica">
+                    <i class="fa-solid fa-hospital"></i>
+                    Clínica
+                </button>
+                <!--<button class="config-tab" data-tab="aparencia">
+                    <i class="fa-solid fa-palette"></i>
+                    Aparência
+                </button>-->
+                <button class="config-tab" data-tab="agenda">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Agenda
+                </button>
+                <button class="config-tab" data-tab="financeiro">
+                    <i class="fa-solid fa-wallet"></i>
+                    Financeiro
+                </button>
+                <button class="config-tab" data-tab="usuarios">
+                    <i class="fa-solid fa-users-gear"></i>
+                    Usuários
+                </button>
+                <button class="config-tab" data-tab="notificacoes">
+                    <i class="fa-solid fa-bell"></i>
+                    Notificações
+                </button>
+                <button class="config-tab" data-tab="backup">
+                    <i class="fa-solid fa-database"></i>
+                    Backup
+                </button>
+                <button class="config-tab" data-tab="integracoes">
+                    <i class="fa-solid fa-plug"></i>
+                    Integrações
+                </button>
+                <button class="config-tab" data-tab="sobre">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Sobre
+                </button>
+            </aside>
+            <!--=========================================
+                CONTEÚDO DAS ABAS
+            ==========================================-->
+            <section class="config-content">
+                <!--=========================================
+                    CLÍNICA
+                ==========================================-->
+                <div class="config-page active" id="clinica">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-hospital"></i>
+                            Dados da Clínica
+                        </h2>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Nome da Clínica
+                                </label>
+                                <input type="text" id="nomeClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Razão Social
+                                </label>
+                                <input type="text" id="razaoSocial" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    CNPJ
+                                </label>
+                                <input type="text" id="cnpjClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    CNES
+                                </label>
+                                <input type="text" id="cnesClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Telefone
+                                </label>
+                                <input type="text" id="telefoneClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    WhatsApp
+                                </label>
+                                <input type="text" id="whatsappClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    E-mail
+                                </label>
+                                <input type="email" id="emailClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Website
+                                </label>
+                                <input type="text" id="siteClinica" class="form-control">
+                            </div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    CEP
+                                </label>
+                                <input type="text" id="cepClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Cidade
+                                </label>
+                                <input type="text" id="cidadeClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Estado
+                                </label>
+                                <input type="text" id="estadoClinica" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Endereço
+                                </label>
+                                <input type="text" id="enderecoClinica" class="form-control">
+                            </div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Horário de Funcionamento
+                                </label>
+                                <input type="text" id="horarioFuncionamento" class="form-control"
+                                    placeholder="08:00 às 18:00">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Logo da Clínica
+                                </label>
+                                <input type="file" id="logoClinica" class="form-control" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--======================================
+                    APARÊNCIA
+                =======================================-->
+                <!--<div class="config-page" id="aparencia">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-palette"></i>
+                            Aparência do Sistema
+                        </h2>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Tema
+                                </label>
+                                <select id="temaSistema" class="form-control">
+                                    <option value="claro">
+                                        Claro
+                                    </option>
+                                    <option value="escuro">
+                                        Escuro
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Cor Principal
+                                </label>
+                                <input type="color" id="corPrimaria" class="form-control" value="#2563eb">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Cor Secundária
+                                </label>
+                                <input type="color" id="corSecundaria" class="form-control" value="#0f172a">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Fonte do Sistema
+                                </label>
+                                <select id="fonteSistema" class="form-control">
+                                    <option>
+                                        Inter
+                                    </option>
+                                    <option>
+                                        Poppins
+                                    </option>
+                                    <option>
+                                        Roboto
+                                    </option>
+                                    <option>
+                                        Open Sans
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!--======================================
+                    AGENDA
+                =======================================-->
+                <div class="config-page" id="agenda">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            Configurações da Agenda
+                        </h2>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Hora Inicial
+                                </label>
+                                <input type="time" id="horaInicial" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Hora Final
+                                </label>
+                                <input type="time" id="horaFinal" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Intervalo entre Consultas
+                                </label>
+                                <select id="intervaloAgenda" class="form-control">
+                                    <option value="10">
+                                        10 minutos
+                                    </option>
+                                    <option value="15">
+                                        15 minutos
+                                    </option>
+                                    <option value="20">
+                                        20 minutos
+                                    </option>
+                                    <option value="30">
+                                        30 minutos
+                                    </option>
+                                    <option value="60">
+                                        60 minutos
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Duração padrão da Consulta
+                                </label>
+                                <select id="duracaoPadrao" class="form-control">
+                                    <option value="15">
+                                        15 minutos
+                                    </option>
+                                    <option value="30">
+                                        30 minutos
+                                    </option>
+                                    <option value="45">
+                                        45 minutos
+                                    </option>
+                                    <option value="60">
+                                        60 minutos
+                                    </option>
+                                    <option value="90">
+                                        90 minutos
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--======================================
+                    FINANCEIRO
+                =======================================-->
+                <div class="config-page" id="financeiro">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-wallet"></i>
+                            Configurações Financeiras
+                        </h2>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label>
+                                    Moeda
+                                </label>
+                                <select id="moedaSistema" class="form-control">
+                                    <option value="BRL">
+                                        Real (R$)
+                                    </option>
+                                    <option value="USD">
+                                        Dólar (US$)
+                                    </option>
+                                    <option value="EUR">
+                                        Euro (€)
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Comissão padrão (%)
+                                </label>
+                                <input type="number" id="comissaoPadrao" class="form-control" min="0" max="100">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Dias para vencimento
+                                </label>
+                                <input type="number" id="diasVencimento" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Forma de pagamento padrão
+                                </label>
+                                <select id="formaPagamentoPadrao" class="form-control">
+                                    <option>
+                                        Dinheiro
+                                    </option>
+                                    <option>
+                                        PIX
+                                    </option>
+                                    <option>
+                                        Cartão de Crédito
+                                    </option>
+                                    <option>
+                                        Cartão de Débito
+                                    </option>
+                                    <option>
+                                        Transferência Bancária
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Multa por atraso (%)
+                                </label>
+                                <input type="number" id="multaAtraso" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Juros ao mês (%)
+                                </label>
+                                <input type="number" id="jurosMensal" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--======================================
+                    USUÁRIOS
+                =======================================-->
+                <div class="config-page" id="usuarios">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-users-gear"></i>
+                            Permissões de Usuários
+                        </h2>
+                        <div class="config-switch">
+                            <label>
+                                Administrador possui acesso total
+                            </label>
+                            <input type="checkbox" checked disabled>
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Recepcionista pode cadastrar pacientes
+                            </label>
+                            <input type="checkbox" id="permRecepcionistaPaciente">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Recepcionista pode editar agenda
+                            </label>
+                            <input type="checkbox" id="permRecepcionistaAgenda">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Profissionais visualizam somente seus pacientes
+                            </label>
+                            <input type="checkbox" id="profissionalRestrito">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Financeiro possui acesso ao módulo financeiro
+                            </label>
+                            <input type="checkbox" id="permFinanceiro">
+                        </div>
+                    </div>
+                </div>
+                <!--======================================
+                    NOTIFICAÇÕES
+                =======================================-->
+                <div class="config-page" id="notificacoes">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-bell"></i>
+                            Notificações
+                        </h2>
+                        <div class="config-switch">
+                            <label>
+                                Lembrete automático de consultas
+                            </label>
+                            <input type="checkbox" id="notificacaoConsulta">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Avisar aniversariantes
+                            </label>
+                            <input type="checkbox" id="notificacaoAniversario">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Avisar contas vencidas
+                            </label>
+                            <input type="checkbox" id="notificacaoFinanceiro">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Enviar e-mails automáticos
+                            </label>
+                            <input type="checkbox" id="emailAutomatico">
+                        </div>
+                    </div>
+                </div>
+                <!--======================================
+                    BACKUP
+                =======================================-->
+                <div class="config-page" id="backup">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-database"></i>
+                            Backup do Sistema
+                        </h2>
+                        <div class="grid-2">
+                            <button class="btn btn-primary" id="btnExportarBackup">
+                                <i class="fa-solid fa-download"></i>
+                                Exportar Backup
+                            </button>
+                            <button class="btn btn-success" id="btnImportarBackup">
+                                <i class="fa-solid fa-upload"></i>
+                                Importar Backup
+                            </button>
+                            <button class="btn btn-warning" id="btnBackupAutomatico">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                Configurar Backup Automático
+                            </button>
+                            <button class="btn btn-danger" id="btnRestaurarSistema">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Restaurar Sistema
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--======================================
+                    INTEGRAÇÕES
+                =======================================-->
+                <div class="config-page" id="integracoes">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-plug"></i>
+                            Integrações
+                        </h2>
+                        <div class="config-switch">
+                            <label>
+                                Google Calendar
+                            </label>
+                            <input type="checkbox" id="integracaoGoogleCalendar">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Google Drive
+                            </label>
+                            <input type="checkbox" id="integracaoGoogleDrive">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                WhatsApp Business
+                            </label>
+                            <input type="checkbox" id="integracaoWhatsapp">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Mercado Pago
+                            </label>
+                            <input type="checkbox" id="integracaoMercadoPago">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Stripe
+                            </label>
+                            <input type="checkbox" id="integracaoStripe">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                Asaas
+                            </label>
+                            <input type="checkbox" id="integracaoAsaas">
+                        </div>
+                        <div class="config-switch">
+                            <label>
+                                ViaCEP
+                            </label>
+                            <input type="checkbox" id="integracaoViaCep" checked>
+                        </div>
+                    </div>
+                </div>
+                <!--======================================
+                    SOBRE
+                =======================================-->
+                <div class="config-page" id="sobre">
+                    <div class="config-card">
+                        <h2>
+                            <i class="fa-solid fa-circle-info"></i>
+                            Sobre o Sistema
+                        </h2>
+                        <div class="sobre-sistema">
+                            <div class="sobre-logo">
+                                <i class="fa-solid fa-hospital"></i>
+                            </div>
+                            <h2>
+                                ClinicFlow
+                            </h2>
+                            <p>
+                                Sistema completo para gestão de clínicas.
+                            </p>
+                            <div class="sobre-grid">
+                                <div>
+                                    <strong>
+                                        Versão
+                                    </strong>
+                                    <span>
+                                        1.0.0
+                                    </span>
+                                </div>
+                                <div>
+                                    <strong>
+                                        Desenvolvido por
+                                    </strong>
+                                    <span>
+                                        Pedro Henrique Martins
+                                    </span>
+                                </div>
+                                <div>
+                                    <strong>
+                                        Front-end
+                                    </strong>
+                                    <span>
+                                        HTML5 • CSS3 • JavaScript
+                                    </span>
+                                </div>
+                                <div>
+                                    <strong>
+                                        Banco de Dados
+                                    </strong>
+                                    <span>
+                                        LocalStorage / MySQL API
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <!--======================================
+        MODAL RESTAURAR SISTEMA
+    =======================================-->
+    <div class="modal-overlay" id="modalRestaurarSistema">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>
+                    Restaurar Sistema
+                </h2>
+                <button class="btn btn-danger btn-sm" id="fecharModalRestaurar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Esta operação irá substituir todas as informações atuais do
+                    ClinicFlow pelo backup selecionado.
+                </p>
+                <p>
+                    <strong>
+                        Esta ação não poderá ser desfeita.
+                    </strong>
+                </p>
+                <input type="file" id="arquivoBackup" accept=".json" class="form-control">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelarRestauracao">
+                    Cancelar
+                </button>
+                <button class="btn btn-danger" id="confirmarRestauracao">
+                    Restaurar
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--======================================
+        SCRIPTS
+    =======================================-->
+    <script src="../assets/js/core/utils.js"></script>
+    <script src="../assets/js/core/storage.js"></script>
+    <script src="../assets/js/core/modal.js"></script>
+    <script src="../assets/js/core/sidebar.js"></script>
+    <script src="../assets/js/pages/configuracoes.js"></script>
+</body>
+
+</html>

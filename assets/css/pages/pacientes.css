@@ -10,6 +10,7 @@
   width: 100%;
   margin-bottom: 24px;
 }
+
 /* ==========================================================
    OVERLAY DO MENU
    ========================================================== */
@@ -294,6 +295,12 @@ textarea.form-control {
   }
 }
 
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
@@ -312,6 +319,7 @@ textarea.form-control {
   .menu-toggle {
     display: flex;
   }
+
   .grid-2 {
     grid-template-columns: 1fr;
   }

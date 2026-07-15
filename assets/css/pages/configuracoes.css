@@ -1,0 +1,633 @@
+/* ==========================================================
+   CONFIGURAÇÕES
+   ClinicFlow
+========================================================== */
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.configuracoes-container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* ==========================================================
+   MENU LATERAL
+========================================================== */
+.config-menu {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: sticky;
+    top: 20px;
+}
+
+/* ==========================================================
+   BOTÕES MENU
+========================================================== */
+.config-tab {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: none;
+    background: transparent;
+    padding: 14px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gray-600);
+    transition: .25s;
+}
+
+.config-tab i {
+    width: 22px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.config-tab:hover {
+    background: #eef5ff;
+    color: var(--primary);
+}
+
+.config-tab.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* ==========================================================
+   CONTEÚDO
+========================================================== */
+.config-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ==========================================================
+   ABAS
+========================================================== */
+.config-page {
+    display: none;
+    animation: fadeConfig .30s ease;
+}
+
+.config-page.active {
+    display: block;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+.config-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+}
+
+.config-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: var(--gray-800);
+}
+
+.config-card h2 i {
+    color: var(--primary);
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+/* ==========================================================
+   FORMULÁRIOS
+========================================================== */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+.form-control {
+    width: 100%;
+}
+
+/* ==========================================================
+   ANIMAÇÃO
+========================================================== */
+@keyframes fadeConfig {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================
+   RESPONSIVO
+========================================================== */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+@media (max-width:1100px) {
+    .configuracoes-container {
+        grid-template-columns: 1fr;
+    }
+
+    .config-menu {
+        position: relative;
+        top: 0;
+        flex-direction: row;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .config-tab {
+        min-width: max-content;
+    }
+}
+
+@media (max-width:768px) {
+
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================
+   SWITCHES
+========================================================== */
+.config-switch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border: 1px solid #edf1f5;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    background: #fff;
+    transition: .25s;
+}
+
+.config-switch:hover {
+    background: #f8fbff;
+    border-color: #d7e5ff;
+}
+
+.config-switch label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+/* ==========================================================
+   SWITCH PERSONALIZADO
+========================================================== */
+.config-switch input[type="checkbox"] {
+    appearance: none;
+    width: 52px;
+    height: 28px;
+    border-radius: 50px;
+    background: #d1d5db;
+    position: relative;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.config-switch input[type="checkbox"]::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    transition: .25s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+}
+
+.config-switch input[type="checkbox"]:checked {
+    background: var(--primary);
+}
+
+.config-switch input[type="checkbox"]:checked::before {
+    transform: translateX(24px);
+}
+
+/* ==========================================================
+   INPUT FILE
+========================================================== */
+input[type="file"] {
+    padding: 12px;
+    border: 2px dashed #d8e2ef;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #fafcff;
+    transition: .25s;
+}
+
+input[type="file"]:hover {
+    border-color: var(--primary);
+    background: #eef5ff;
+}
+
+/* ==========================================================
+   BOTÕES BACKUP
+========================================================== */
+#backup .grid-2 {
+    margin-top: 20px;
+}
+
+#backup .btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==========================================================
+   SOBRE
+========================================================== */
+.sobre-sistema {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.sobre-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    background: linear-gradient(135deg,
+            var(--primary),
+            #4f8cff);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.sobre-sistema h2 {
+    margin-bottom: 8px;
+}
+
+.sobre-sistema p {
+    color: var(--gray-500);
+    margin-bottom: 30px;
+}
+
+/* ==========================================================
+   GRID SOBRE
+========================================================== */
+.sobre-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    width: 100%;
+}
+
+.sobre-grid div {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: .25s;
+}
+
+.sobre-grid div:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.sobre-grid strong {
+    color: var(--gray-800);
+}
+
+.sobre-grid span {
+    color: var(--gray-500);
+}
+
+/* ==========================================================
+   INTEGRAÇÕES
+========================================================== */
+#integracoes .config-switch {
+    margin-bottom: 12px;
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+.config-card {
+    transition: .25s;
+}
+
+.config-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .08);
+}
+
+/* ==========================================================
+   BOTÃO SALVAR
+========================================================== */
+#btnSalvarConfiguracoes {
+    min-width: 220px;
+}
+
+/* ==========================================================
+   BADGES OPCIONAIS
+========================================================== */
+.badge-config {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #e8f1ff;
+    color: var(--primary);
+}
+
+/* ==========================================================
+   MODAL RESTAURAÇÃO
+========================================================== */
+#modalRestaurarSistema .modal {
+    max-width: 550px;
+}
+
+#modalRestaurarSistema .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#modalRestaurarSistema p {
+    color: var(--gray-600);
+    line-height: 1.6;
+}
+
+#modalRestaurarSistema strong {
+    color: #dc2626;
+}
+
+/* ==========================================================
+   SCROLL MENU
+========================================================== */
+.config-menu::-webkit-scrollbar {
+    height: 8px;
+}
+
+.config-menu::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 20px;
+}
+
+.config-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ==========================================================
+   SCROLL CONTEÚDO
+========================================================== */
+.config-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.config-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 20px;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+.form-control {
+    transition:
+        border-color .25s,
+        box-shadow .25s,
+        background .25s;
+
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+    background: #fff;
+}
+
+/* ==========================================================
+   SELECT
+========================================================== */
+select.form-control {
+    cursor: pointer;
+}
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+.config-card .btn {
+    transition: .25s;
+}
+
+.config-card .btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+.config-card {
+    border: 1px solid #edf2f7;
+}
+
+.config-card+.config-card {
+    margin-top: 22px;
+}
+
+/* ==========================================================
+   TÍTULOS
+========================================================== */
+.config-card h2 {
+    border-bottom: 1px solid #eef2f7;
+    padding-bottom: 16px;
+}
+
+/* ==========================================================
+   MENU
+========================================================== */
+.config-tab {
+    position: relative;
+}
+
+.config-tab.active::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    bottom: 10px;
+    width: 4px;
+    border-radius: 10px;
+    background: #fff;
+}
+
+/* ==========================================================
+   ANIMAÇÃO EXTRA
+========================================================== */
+.config-card {
+    animation: aparecerCard .35s ease;
+}
+
+@keyframes aparecerCard {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================
+   RESPONSIVO TABLET
+========================================================== */
+@media (max-width:992px) {
+    .config-card {
+        padding: 22px;
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVO CELULAR
+========================================================== */
+@media (max-width:768px) {
+    .config-menu {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .config-tab {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .config-card {
+        padding: 18px;
+    }
+
+    .config-card h2 {
+        font-size: 20px;
+    }
+
+    .sobre-logo {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+    }
+
+    #btnSalvarConfiguracoes {
+        width: 100%;
+    }
+}
+
+/* ==========================================================
+   RESPONSIVO PEQUENO
+========================================================== */
+@media (max-width:480px) {
+    .config-menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .config-tab {
+        justify-content: center;
+        text-align: center;
+        font-size: 13px;
+        padding: 12px 8px;
+    }
+
+    .config-tab i {
+        display: none;
+    }
+}
+
+/* ==========================================================
+   MODO ESCURO (PREPARAÇÃO FUTURA)
+========================================================== */
+body.dark .config-card {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark .config-menu {
+    background: #1f2937;
+}
+
+body.dark .config-switch {
+    background: #273244;
+    border-color: #3b4a5e;
+}
+
+body.dark .sobre-grid div {
+    background: #273244;
+}
+
+body.dark .config-card h2,
+body.dark .config-switch label,
+body.dark .sobre-grid strong {
+    color: #fff;
+}
+
+body.dark .sobre-grid span,
+body.dark .form-group label {
+    color: #cbd5e1;
+}

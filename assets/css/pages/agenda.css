@@ -607,6 +607,12 @@ TOPBAR
 /* ==========================================================
    RESPONSIVIDADE
 ========================================================== */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
 @media (max-width: 1200px) {
   .agenda-filters {
     grid-template-columns: repeat(2, 1fr);
