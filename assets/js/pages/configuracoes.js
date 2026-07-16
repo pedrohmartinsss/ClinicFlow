@@ -143,6 +143,13 @@ function configurarAbas() {
    EVENTOS
 ========================================================== */
 function configurarEventos() {
+    const btnSair = document.querySelector("#btnSair");
+    if (btnSair) {
+        btnSair.addEventListener("click", () => {
+            Auth.logout();
+        });
+    }
+
     document
         .querySelector("#btnSalvarConfiguracoes")
         ?.addEventListener(

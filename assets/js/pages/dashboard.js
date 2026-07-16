@@ -9,15 +9,20 @@ let agendamentos = [];
 ========================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   Auth.protegerPagina();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   carregarAgendamentos();
   renderizarAgendamentos();
   atualizarCards();
   iniciarModalAgendamento();
   iniciarPesquisaAgenda();
   iniciarAcoesAgenda();
+  iniciarMenuDashboard();
+
+  const btnSair = document.querySelector("#btnSair");
+  if (btnSair) {
+    btnSair.addEventListener("click", () => {
+      Auth.logout();
+    });
+  }
 });
 /* ==========================================================
    CARREGAMENTO
@@ -169,11 +174,14 @@ function pesquisarAgenda(valor) {
    AÇÕES
 ========================================================== */
 function iniciarAcoesAgenda() {
-  document.querySelectorAll(".agenda-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      const id = item.dataset.id;
-      alterarStatus(id);
-    });
+  const lista = document.querySelector("#listaAgendamentos");
+  if (!lista) return;
+
+  lista.addEventListener("click", (event) => {
+    const item = event.target.closest(".agenda-item");
+    if (!item) return;
+
+    alterarStatus(item.dataset.id);
   });
 }
 
@@ -190,35 +198,32 @@ function alterarStatus(id) {
   atualizarCards();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const btnSair = document.querySelector("#btnSair");
-  if (btnSair) {
-    btnSair.addEventListener("click", () => {
-      Auth.logout();
-    });
-  }
-});
 /* ==========================================================
    FUNÇÃO PARA BOTÃO MENU EM DISPOSITIVOS MÓVEIS
 ========================================================== */
-const btnMenu = document.getElementById("btnMenu");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
+function iniciarMenuDashboard() {
+  const btnMenu = document.getElementById("btnMenu");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
 
-btnMenu.addEventListener("click", () => {
-  sidebar.classList.toggle("active");
-  overlay.classList.toggle("active");
-});
+  if (!btnMenu || !sidebar || !overlay) return;
 
-overlay.addEventListener("click", () => {
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
-});
-document.querySelectorAll("#sidebar a").forEach((link) => {
-  link.addEventListener("click", () => {
-    if (window.innerWidth <= 991) {
-      sidebar.classList.remove("active");
-      overlay.classList.remove("active");
-    }
+  btnMenu.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
   });
-});
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  document.querySelectorAll("#sidebar a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 991) {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    });
+  });
+}

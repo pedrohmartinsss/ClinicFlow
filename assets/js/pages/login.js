@@ -6,6 +6,7 @@
 document.addEventListener(
     "DOMContentLoaded",
     () => {
+        Storage.remover("clinicflow_sessao");
         criarUsuarioInicial();
         iniciarLogin();
     });
@@ -63,6 +64,30 @@ function iniciarLogin() {
     );
 }
 
+function normalizarPermissoesLogin(permissoes) {
+    const base = {
+        dashboard: false,
+        pacientes: false,
+        agenda: false,
+        profissionais: false,
+        servicos: false,
+        financeiro: false,
+        relatorios: false,
+        configuracoes: false,
+        usuarios: false
+    };
+
+    if (!permissoes || typeof permissoes !== "object") {
+        return base;
+    }
+
+    Object.keys(base).forEach((chave) => {
+        base[chave] = Boolean(permissoes[chave]);
+    });
+
+    return base;
+}
+
 function realizarLogin() {
     const login =
         document.querySelector(
@@ -88,7 +113,13 @@ function realizarLogin() {
     });
 
     if (usuario) {
-        Auth.login(usuario);
+        const usuarioSessao = {
+            ...usuario,
+            perfil: usuario.perfil || "Administrador",
+            permissoes: normalizarPermissoesLogin(usuario.permissoes)
+        };
+
+        Auth.login(usuarioSessao);
         window.location.href =
             "html/dashboard.html";
         return;
@@ -100,7 +131,13 @@ function realizarLogin() {
         ((usuarioLegacy.email || "").toLowerCase() === login || (usuarioLegacy.login || "").toLowerCase() === login) &&
         usuarioLegacy.senha === senha
     ) {
-        Auth.login(usuarioLegacy);
+        const usuarioSessao = {
+            ...usuarioLegacy,
+            perfil: usuarioLegacy.perfil || "Administrador",
+            permissoes: normalizarPermissoesLogin(usuarioLegacy.permissoes)
+        };
+
+        Auth.login(usuarioSessao);
         window.location.href =
             "html/dashboard.html";
         return;

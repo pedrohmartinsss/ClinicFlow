@@ -146,6 +146,13 @@ function carregarUsuarios() {
 }
 
 function configurarEventos() {
+    const btnSair = document.querySelector("#btnSair");
+    if (btnSair) {
+        btnSair.addEventListener("click", () => {
+            Auth.logout();
+        });
+    }
+
     const btnNovo = document.querySelector("#btnNovoUsuario");
     if (btnNovo) {
         btnNovo.addEventListener("click", abrirModalUsuario);
