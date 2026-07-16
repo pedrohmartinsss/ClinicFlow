@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   configurarFiltros();
   atualizarData();
   preencherPacientes();
-  preencherProfissionais();
+  preencherFiltroProfissionais();
   aplicarFiltros();
 });
 /* ==========================================================
@@ -114,6 +114,7 @@ function avancarDia() {
 function abrirModal() {
   const modal = document.querySelector("#modalAgendamento");
   if (!modal) return;
+  preencherProfissionaisAgendamento();
   modal.classList.add("active");
 }
 function fecharModal() {
@@ -153,6 +154,7 @@ function abrirModal() {
     console.error("Modal não encontrado.");
     return;
   }
+  preencherProfissionaisAgendamento();
   modal.classList.add("active");
 }
 function fecharModal() {
@@ -436,7 +438,7 @@ function configurarFiltros() {
 /* ==========================================================
    PROFISSIONAIS
 ========================================================== */
-function preencherProfissionais() {
+function preencherFiltroProfissionais() {
   const select = document.querySelector("#filtroProfissional");
   if (!select) return;
   const profissionais = [...new Set(agendamentos.map((a) => a.profissional))];
@@ -446,6 +448,31 @@ function preencherProfissionais() {
                 ${nome}
             </option>`;
   });
+}
+
+function preencherProfissionaisAgendamento() {
+  const select = document.querySelector("#profissionalAgendamento");
+  if (!select) return;
+
+  const profissionais = Storage.buscar("clinicflow_profissionais") || [];
+  const profissionalSelecionado = select.value;
+
+  select.innerHTML = "";
+  const opcaoPadrao = document.createElement("option");
+  opcaoPadrao.value = "";
+  opcaoPadrao.textContent = "Selecione um profissional";
+  select.appendChild(opcaoPadrao);
+
+  profissionais.forEach((profissional) => {
+    const opcao = document.createElement("option");
+    opcao.value = profissional.nome;
+    opcao.textContent = profissional.especialidade
+      ? `${profissional.nome} — ${profissional.especialidade}`
+      : profissional.nome;
+    select.appendChild(opcao);
+  });
+
+  select.value = profissionalSelecionado;
 }
 /* ==========================================================
    APLICAR FILTROS

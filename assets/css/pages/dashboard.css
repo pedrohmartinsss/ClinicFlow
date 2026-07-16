@@ -21,6 +21,7 @@
     transform: translateY(0);
   }
 }
+
 /* ==========================================================
    OVERLAY DO MENU
    ========================================================== */
@@ -211,6 +212,10 @@
    RESPONSIVIDADE DASHBOARD
    ========================================================== */
 @media (min-width: 768px) {
+  .topbar {
+    border-radius: 5px;
+  }
+
   .menu-toggle {
     display: none;
   }

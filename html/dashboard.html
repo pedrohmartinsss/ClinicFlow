@@ -92,7 +92,6 @@
       </div>
       <div class="sidebar-footer">
         <div class="user">
-          <img src="https://i.pravatar.cc/80?img=12" />
           <div>
             <strong>Administrador</strong>
             <span>admin@clinicflow.com</span>
@@ -127,9 +126,6 @@
           <button>
             <i class="fa-regular fa-envelope"></i>
           </button>
-          <button>
-            <i class="fa-solid fa-gear"></i>
-          </button>
         </div>
       </header>
       <!-- ===========================
@@ -148,7 +144,7 @@
           <h1>Dashboard</h1>
           <p>Bem-vindo novamente ao ClinicFlow.</p>
         </div>
-        <button class="btn btn-primary" id="btnNovoAgendamento">
+        <button class="btn btn-primary" id="btnNovoAgendameno">
           <i class="fa-solid fa-calendar-plus"></i>
           Novo Agendamento
         </button>
@@ -205,7 +201,7 @@
           <div class="panel-header">
             <div class="d-flex justify-between align-center">
               <h3>Agenda de Hoje</h3>
-              <button class="btn btn-primary btn-sm">
+              <button class="btn btn-primary btn-sm" id="btnAgenda">
                 <i class="fa-solid fa-plus"></i>
                 Agendar
               </button>
@@ -440,8 +436,10 @@
             <p>Cadastre rapidamente um novo paciente.</p>
             <br />
             <button class="btn btn-primary">
-              <i class="fa-solid fa-user-plus"></i>
-              Cadastrar
+              <a href="pacientes.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Cadastrar
+              </a>
             </button>
           </div>
         </div>
@@ -453,8 +451,10 @@
             <p>Agende uma nova consulta.</p>
             <br />
             <button class="btn btn-success">
-              <i class="fa-solid fa-calendar-plus"></i>
-              Agendar
+              <a href="agenda.html">
+                <i class="fa-solid fa-calendar-plus"></i>
+                Agendar
+              </a>
             </button>
           </div>
         </div>
@@ -466,8 +466,10 @@
             <p>Visualizar receitas e despesas.</p>
             <br />
             <button class="btn btn-warning">
-              <i class="fa-solid fa-wallet"></i>
-              Abrir
+              <a href="financeiro.html">
+                <i class="fa-solid fa-wallet"></i>
+                Abrir
+              </a>
             </button>
           </div>
         </div>
@@ -479,8 +481,10 @@
             <p>Emitir relatórios gerenciais.</p>
             <br />
             <button class="btn btn-secondary">
-              <i class="fa-solid fa-chart-column"></i>
-              Visualizar
+              <a href="relatorios.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Visualizar
+              </a>
             </button>
           </div>
         </div>
@@ -491,7 +495,6 @@
       <footer>
         <p>
           ClinicFlow © 2026
-          <strong>Versão 1.0.0</strong>
         </p>
       </footer>
       <!-- ==================================================
@@ -518,8 +521,7 @@
               <div class="form-group">
                 <label> Profissional </label>
                 <select class="form-control" id="profissionalAgendamento">
-                  <option>Dr. Carlos</option>
-                  <option>Dra. Ana</option>
+                  <option value="">Selecione um profissional</option>
                 </select>
               </div>
               <div class="form-group">

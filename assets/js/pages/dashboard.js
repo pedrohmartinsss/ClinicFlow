@@ -109,9 +109,10 @@ function atualizarCards() {
    MODAL AGENDAMENTO
 ========================================================== */
 function iniciarModalAgendamento() {
-  const abrir = document.querySelector("#btnNovoAgendamento");
+  const abrir = document.querySelector("#btnNovoAgendamento,#btnAgenda");
   if (abrir) {
     abrir.addEventListener("click", () => {
+      preencherProfissionaisAgendamento();
       Modal.abrir("#modalAgendamento");
     });
   }
@@ -128,16 +129,42 @@ function iniciarModalAgendamento() {
   }
 }
 
+function preencherProfissionaisAgendamento() {
+  const select = document.querySelector("#profissionalAgendamento");
+  if (!select) return;
+
+  const profissionais = Storage.buscar("clinicflow_profissionais") || [];
+  const profissionalSelecionado = select.value;
+
+  select.innerHTML = "";
+  const opcaoPadrao = document.createElement("option");
+  opcaoPadrao.value = "";
+  opcaoPadrao.textContent = "Selecione um profissional";
+  select.appendChild(opcaoPadrao);
+
+  profissionais.forEach((profissional) => {
+    const opcao = document.createElement("option");
+    opcao.value = profissional.nome;
+    opcao.textContent = profissional.especialidade
+      ? `${profissional.nome} — ${profissional.especialidade}`
+      : profissional.nome;
+    select.appendChild(opcao);
+  });
+
+  select.value = profissionalSelecionado;
+}
+
 function salvarAgendamento() {
   const paciente = document.querySelector("#pacienteAgendamento").value;
-  if (!paciente) {
-    alert("Selecione um paciente");
+  const profissional = document.querySelector("#profissionalAgendamento").value;
+  if (!paciente || !profissional) {
+    alert("Selecione um paciente e um profissional");
     return;
   }
   agendamentos.push({
     id: Utils.gerarId(),
     paciente,
-    profissional: document.querySelector("#profissionalAgendamento").value,
+    profissional,
     data: document.querySelector("#dataAgendamento").value,
     horario: document.querySelector("#horarioAgendamento").value,
     status: "pendente",

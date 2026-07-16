@@ -161,7 +161,7 @@ function renderizarServicos() {
 function renderizarCardServico(servico) {
     const container = document.querySelector("#listaServicos");
     const nomesProfissionais = profissionais
-        .filter(p => servico.profissionais.includes(p.id))
+        .filter(p => (servico.profissionais || []).includes(p.id))
         .map(p => p.nome)
         .join(", ");
     const card = document.createElement("div");

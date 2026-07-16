@@ -111,6 +111,13 @@
   align-items: center;
 }
 
+.acoes-paciente {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
 /* ==========================================================
    PAGINAÇÃO
 ========================================================== */
@@ -296,6 +303,12 @@ textarea.form-control {
 }
 
 @media (min-width: 768px) {
+
+  .topbar {
+    display: none;
+    ;
+  }
+
   .menu-toggle {
     display: none;
   }

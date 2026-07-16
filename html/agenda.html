@@ -90,7 +90,6 @@
       </nav>
       <div class="sidebar-footer">
         <div class="user">
-          <img src="https://i.pravatar.cc/80?img=12" />
           <div>
             <strong> Administrador </strong>
             <span> admin@clinicflow.com </span>
@@ -112,17 +111,23 @@
         <button id="btnMenu" class="menu-toggle">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <div class="page-title-info">
-          <h1>Agenda</h1>
-          <p>Gerencie todos os agendamentos da clínica.</p>
-        </div>
-        <div class="topbar-right">
-          <button class="btn btn-primary" id="btnNovoAgendamento">
-            <i class="fa-solid fa-calendar-plus"></i>
-            Novo Agendamento
-          </button>
-        </div>
       </header>
+      <div class="breadcrumb p-3">
+        <span> Início </span>
+        <i class="fa-solid fa-angle-right"></i>
+        <span> Agenda </span>
+      </div>
+      <div class="page-title-info">
+        <h1>Agenda</h1>
+        <p>Gerencie todos os agendamentos da clínica.</p>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-primary" id="btnNovoAgendamento">
+          <i class="fa-solid fa-calendar-plus"></i>
+          Novo Agendamento
+        </button>
+      </div>
+
       <!-- Navegação entre datas -->
       <section class="agenda-navigation">
         <button class="btn btn-secondary" id="btnDiaAnterior">
@@ -272,8 +277,6 @@
                 <label> Profissional </label>
                 <select id="profissionalAgendamento" class="form-control">
                   <option value="">Selecione um profissional</option>
-                  <option>Dr. Carlos</option>
-                  <option>Dra. Ana</option>
                 </select>
               </div>
               <div class="form-group">
