@@ -6,21 +6,74 @@
 document.addEventListener(
     "DOMContentLoaded",
     () => {
-        Storage.remover("clinicflow_sessao");
         criarUsuarioInicial();
+
+        if (Auth.estaLogado()) {
+            const proximaPagina = Auth.obterPrimeiraPaginaPermitida();
+            if (proximaPagina) {
+                window.location.replace(`html/${proximaPagina}`);
+                return;
+            }
+
+            // Sessões antigas ou corrompidas podem não possuir permissões.
+            // Não as redirecionamos para uma página que irá recusá-las.
+            Auth.limparSessao();
+        }
+
         iniciarLogin();
     });
 /* ==========================================================
    USUÁRIO PADRÃO
 ========================================================== */
+const PERMISSOES_ADMINISTRADOR = {
+    dashboard: true,
+    pacientes: true,
+    agenda: true,
+    profissionais: true,
+    servicos: true,
+    financeiro: true,
+    relatorios: true,
+    configuracoes: true,
+    usuarios: true
+};
+
 function criarUsuarioInicial() {
     const usuarios = Storage.buscar("clinicflow_usuarios") || [];
-    if (usuarios.length > 0) {
+    const indiceAdmin = usuarios.findIndex((usuario) => {
+        const login = (usuario.login || usuario.email || "")
+            .toString()
+            .trim()
+            .toLowerCase();
+
+        return login === "admin" || (usuario.email || "").toLowerCase() === "admin@clinicflow.com";
+    });
+
+    if (indiceAdmin !== -1) {
+        const usuarioAdmin = usuarios[indiceAdmin];
+        usuarios[indiceAdmin] = {
+            ...usuarioAdmin,
+            id: usuarioAdmin.id || Utils.gerarId(),
+            nome: usuarioAdmin.nome || "Administrador",
+            cargo: usuarioAdmin.cargo || "Administrador",
+            email: usuarioAdmin.email || "admin@clinicflow.com",
+            login: "admin",
+            senha: usuarioAdmin.senha || "123456",
+            perfil: "Administrador",
+            status: "ativo",
+            usuarioAtivo: true,
+            trocarSenhaPrimeiroLogin: false,
+            permissoes: { ...PERMISSOES_ADMINISTRADOR }
+        };
+
+        Storage.salvar("clinicflow_usuarios", usuarios);
+
         return;
     }
 
     const usuarioPadrao = {
         id: Utils.gerarId(),
+        cargo: "Administrador",
+        cpf: "12398499669",
         nome: "Administrador",
         email: "admin@clinicflow.com",
         login: "admin",
@@ -30,20 +83,10 @@ function criarUsuarioInicial() {
         usuarioAtivo: true,
         trocarSenhaPrimeiroLogin: false,
         foto: "https://i.pravatar.cc/120?img=12",
-        permissoes: {
-            dashboard: true,
-            pacientes: true,
-            agenda: true,
-            profissionais: true,
-            servicos: true,
-            financeiro: true,
-            relatorios: true,
-            configuracoes: true,
-            usuarios: true
-        }
+        permissoes: { ...PERMISSOES_ADMINISTRADOR }
     };
 
-    Storage.salvar("clinicflow_usuarios", [usuarioPadrao]);
+    Storage.salvar("clinicflow_usuarios", [usuarioPadrao, ...usuarios]);
 }
 /* ==========================================================
    LOGIN
@@ -104,10 +147,15 @@ function realizarLogin() {
         ) || [];
 
     const usuario = usuarios.find((item) => {
-        const loginValido = (item.login || item.email || "")
+        const loginUsuario = (item.login || "")
             .toString()
             .trim()
-            .toLowerCase() === login;
+            .toLowerCase();
+        const emailUsuario = (item.email || "")
+            .toString()
+            .trim()
+            .toLowerCase();
+        const loginValido = loginUsuario === login || emailUsuario === login;
 
         return loginValido && item.senha === senha && item.status !== "bloqueado" && item.usuarioAtivo !== false;
     });
@@ -120,8 +168,7 @@ function realizarLogin() {
         };
 
         Auth.login(usuarioSessao);
-        window.location.href =
-            "html/dashboard.html";
+        redirecionarUsuarioAutenticado();
         return;
     }
 
@@ -138,14 +185,24 @@ function realizarLogin() {
         };
 
         Auth.login(usuarioSessao);
-        window.location.href =
-            "html/dashboard.html";
+        redirecionarUsuarioAutenticado();
         return;
     }
 
     mostrarErroLogin(
         "Login ou senha inválidos"
     );
+}
+
+function redirecionarUsuarioAutenticado() {
+    const proximaPagina = Auth.obterPrimeiraPaginaPermitida();
+    if (proximaPagina) {
+        window.location.replace(`html/${proximaPagina}`);
+        return;
+    }
+
+    Auth.limparSessao();
+    mostrarErroLogin("Este usuário não possui permissão de acesso.");
 }
 /* ==========================================================
    VERIFICAR SESSÃO

@@ -75,19 +75,28 @@ const Auth = {
         }
     },
     login(usuario) {
+        const perfil = (usuario.perfil || "").toString().trim();
+        const permissoes = usuario.permissoes && typeof usuario.permissoes === "object"
+            ? usuario.permissoes
+            : this.MAPA_PERMISSOES_FALLBACK[perfil] || {};
+
         Storage.salvar(this.CHAVE_SESSAO, {
             usuarioId: usuario.id,
             nome: usuario.nome,
             email: usuario.email,
-            perfil: usuario.perfil,
+            login: usuario.login,
+            perfil,
             autenticado: true,
             dataLogin: new Date().toISOString(),
-            permissoes: usuario.permissoes || {}
+            permissoes
         });
     },
-    logout() {
+    limparSessao() {
         Storage.remover(this.CHAVE_SESSAO);
-        window.location.href = "../index.html";
+    },
+    logout() {
+        this.limparSessao();
+        window.location.replace("../index.html");
     },
     usuarioLogado() {
         return Storage.buscar(this.CHAVE_SESSAO);
@@ -113,7 +122,13 @@ const Auth = {
         }
 
         const usuarios = Storage.buscar("clinicflow_usuarios") || [];
-        const usuarioAtual = usuarios.find((usuario) => usuario.id === sessao.usuarioId || (usuario.login || "").toLowerCase() === (sessao.login || "").toLowerCase());
+        const loginSessao = (sessao.login || sessao.email || "").toString().trim().toLowerCase();
+        const usuarioAtual = usuarios.find((usuario) =>
+            usuario.id === sessao.usuarioId ||
+            (loginSessao && [usuario.login, usuario.email].some((valor) =>
+                (valor || "").toString().trim().toLowerCase() === loginSessao
+            ))
+        );
 
         if (usuarioAtual?.permissoes && typeof usuarioAtual.permissoes === "object" && Object.keys(usuarioAtual.permissoes).length > 0) {
             return usuarioAtual.permissoes;
@@ -177,9 +192,12 @@ const Auth = {
         if (!this.temPermissao(modulo)) {
             const proximaPagina = this.obterPrimeiraPaginaPermitida();
             if (proximaPagina && proximaPagina !== paginaAtual) {
-                window.location.href = proximaPagina;
+                window.location.replace(proximaPagina);
             } else {
-                window.location.href = "../index.html";
+                // Uma sessão sem nenhuma permissão nunca pode acessar uma página
+                // protegida. Removê-la evita o ciclo login -> dashboard -> login.
+                this.limparSessao();
+                window.location.replace("../index.html");
             }
         }
     }
