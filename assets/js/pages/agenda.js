@@ -8,6 +8,7 @@
    ========================================================== */
 const STORAGE_AGENDAMENTOS = "clinicflow_agendamentos";
 const STORAGE_PACIENTES = "clinicflow_pacientes";
+const STORAGE_PROFISSIONAIS = "clinicflow_profissionais"
 /* ==========================================================
    ESTADO DA AGENDA
    ========================================================== */
@@ -473,6 +474,24 @@ function preencherProfissionaisAgendamento() {
   });
 
   select.value = profissionalSelecionado;
+}
+/* ==========================================================
+   FUNÇÃO PARA CARREGAR PROFISSIONAIS 
+========================================================== */
+function preencherProfissionais() {
+  const select = document.getElementById("profissionalFiltro");
+  if (!select) return;
+  select.innerHTML =
+    '<option value="">Todos os profissionais</option>';
+  const profissionais =
+    Storage.buscar("profissionais") || [];
+  profissionais.forEach(profissional => {
+    const option =
+      document.createElement("option");
+    option.value = profissional.nome;
+    option.textContent = profissional.nome;
+    select.appendChild(option);
+  });
 }
 /* ==========================================================
    APLICAR FILTROS

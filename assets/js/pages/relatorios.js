@@ -1064,6 +1064,33 @@ function preencherTabelaPendencias() {
         });
 }
 /* ==========================================================
+   EVENTOS EXPORTAÇÃO
+========================================================== */
+document
+    .querySelector("#btnExportarPDF")
+    ?.addEventListener(
+        "click",
+        exportarPDF
+    );
+document
+    .querySelector("#btnExportarExcel")
+    ?.addEventListener(
+        "click",
+        exportarExcel
+    );
+document
+    .querySelector("#btnExportarCSV")
+    ?.addEventListener(
+        "click",
+        exportarCSV
+    );
+document
+    .querySelector("#btnImprimirRelatorio")
+    ?.addEventListener(
+        "click",
+        imprimirRelatorio
+    );
+/* ==========================================================
    EXPORTAÇÃO
 ========================================================== */
 function exportarPDF() {
@@ -1212,39 +1239,6 @@ function exportarCSV() {
         "Relatorio_ClinicFlow.csv";
     link.click();
 }
-/* ==========================================================
-   IMPRESSÃO
-========================================================== */
-function imprimirRelatorio() {
-    window.print();
-}
-/* ==========================================================
-   EVENTOS EXPORTAÇÃO
-========================================================== */
-document
-    .querySelector("#btnExportarPDF")
-    ?.addEventListener(
-        "click",
-        exportarPDF
-    );
-document
-    .querySelector("#btnExportarExcel")
-    ?.addEventListener(
-        "click",
-        exportarExcel
-    );
-document
-    .querySelector("#btnExportarCSV")
-    ?.addEventListener(
-        "click",
-        exportarCSV
-    );
-document
-    .querySelector("#btnImprimirRelatorio")
-    ?.addEventListener(
-        "click",
-        imprimirRelatorio
-    );
 /* ==========================================================
    ATUALIZAÇÃO AUTOMÁTICA
 ========================================================== */

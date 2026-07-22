@@ -109,7 +109,7 @@ function atualizarCards() {
    MODAL AGENDAMENTO
 ========================================================== */
 function iniciarModalAgendamento() {
-  const abrir = document.querySelector("#btnNovoAgendamento,#btnAgenda");
+  const abrir = document.querySelector("#btnAgenda");
   if (abrir) {
     abrir.addEventListener("click", () => {
       preencherProfissionaisAgendamento();
